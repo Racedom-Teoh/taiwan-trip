@@ -303,7 +303,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   </div>
   <div class="photo-row">
     <div class="pcard sm" data-wiki="National_Museum_of_Natural_Science_(Taiwan)" data-emoji="🦕" data-label="科博館"></div>
-    <div class="pcard sm" data-wiki="Caotun,_Nantou" data-emoji="🌿" data-label="草悟道審計新村"></div>
+    <div class="pcard sm" data-emoji="🌿" data-label="草悟道・審計新村"></div>
   </div>
   <div class="tl">
     <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐：第一市場</div><div class="td">台中火車站旁民族路/成功路口，傳統早市，蛋餅、肉圓、豆漿。<span class="cp o">NT$80–150</span></div><a class="ml" href="https://maps.google.com/?q=台中第一市場" target="_blank">📍 地圖</a></div>
@@ -395,7 +395,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   </div>
   <div class="photo-row">
     <div class="pcard sm" data-wiki="Vase_Rock" data-emoji="🪸" data-label="花瓶石・小琉球地標"></div>
-    <div class="pcard sm" data-wiki="Pier-2_Art_Center" data-emoji="🎨" data-label="駁二藝術特區"></div>
+    <div class="pcard sm" data-wiki="Pier-2_Art_Centre" data-emoji="🎨" data-label="駁二藝術特區"></div>
   </div>
   <div class="alo"><div class="al al-y">⚠️ 瑞豐夜市週三公休。今晚安排<b>駁二 + 愛河</b>，同樣精彩！明天 D6（四）才是瑞豐。</div></div>
   <div class="tl">
@@ -442,7 +442,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli fd"><div class="tt">13:00</div><div class="tn">🌿 佛光山素食午餐</div><div class="td">館內平價蔬食。<span class="cp o">NT$120–200</span></div></div>
     <div class="tli tr"><div class="tt">14:00</div><div class="tn">🚗 Uber 佛光山→夢時代</div><div class="td">約45分鐘。<span class="cp t">NT$400</span></div></div>
     <div class="photo-row">
-      <div class="pcard sm" data-wiki="Dream_Mall" data-emoji="🛍" data-label="夢時代購物中心"></div>
+      <div class="pcard sm" data-wiki="Dream_Mall_(Kaohsiung)" data-emoji="🛍" data-label="夢時代購物中心"></div>
       <div class="pcard sm" data-wiki="Love_River_(Kaohsiung)" data-emoji="💕" data-label="愛河夜景"></div>
     </div>
     <div class="tli sp"><div class="tt">14:30–17:30</div><div class="tn">🛍 夢時代 Dream Mall + 摩天輪</div><div class="td">高雄最大購物中心，屋頂摩天輪日落視角絕佳。<span class="cp">摩天輪 NT$150</span></div><a class="ml" href="https://maps.google.com/?q=夢時代高雄" target="_blank">📍 地圖</a></div>
@@ -460,8 +460,8 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-tags"><span class="dtag">高雄→桃園</span><span class="dtag">🐠 Xpark</span></div>
   </div>
   <div class="photo-row">
-    <div class="pcard sm" data-wiki="Taiwan_Taoyuan_International_Airport" data-emoji="🐠" data-label="Xpark・Taoyuan"></div>
-    <div class="pcard sm" data-wiki="Taoyuan,_Taiwan" data-emoji="🏙️" data-label="桃園市"></div>
+    <div class="pcard sm" data-emoji="🐠" data-label="Xpark 水族館"></div>
+    <div class="pcard sm" data-wiki="Taoyuan_City" data-emoji="🏙️" data-label="桃園市"></div>
   </div>
   <div class="tl">
     <div class="tli fd"><div class="tt">08:00</div><div class="tn">🥣 早餐</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
@@ -653,21 +653,27 @@ function resetCL(){if(confirm('重置所有清單？')){S.checks={};save();rende
 renderCL();
 
 // WIKIPEDIA PHOTO LOADER
+// Uses action API with origin=* — works from file://, localhost, AND GitHub Pages
 async function loadPhoto(card){
   const wiki=card.dataset.wiki;
   const emoji=card.dataset.emoji||'📍';
   const label=card.dataset.label||'';
   
-  // Insert elements
+  // Build card structure
   card.innerHTML='<div class="pcard-bg"></div><div class="pcard-em">'+emoji+'</div><div class="pcard-cap">'+label+'<span class="pcard-src"></span></div>';
   
+  if(!wiki){card.classList.add('done');return;}
+  
   try{
-    const r=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(wiki));
+    // Wikipedia action API with origin=* allows requests from ANY origin (file://, localhost, etc.)
+    const apiUrl='https://en.wikipedia.org/w/api.php?action=query&titles='+encodeURIComponent(wiki)+'&prop=pageimages&pithumbsize=640&format=json&origin=*';
+    const r=await fetch(apiUrl);
     if(!r.ok){card.classList.add('done');return;}
     const d=await r.json();
-    if(d.thumbnail&&d.thumbnail.source){
-      // Get better resolution
-      let src=d.thumbnail.source.replace(/\/\d+px-/,'/640px-');
+    const pages=Object.values(d.query.pages);
+    const pg=pages[0];
+    if(pg&&pg.thumbnail&&pg.thumbnail.source){
+      const src=pg.thumbnail.source;
       const img=new Image();
       img.onload=()=>{
         const bg=card.querySelector('.pcard-bg');
