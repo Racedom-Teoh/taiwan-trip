@@ -11,7 +11,6 @@
 *,::before,::after{box-sizing:border-box;margin:0;padding:0}
 html{height:100%;background:#555}
 body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;background:var(--bg);color:var(--tx);font-size:13.5px;line-height:1.65;display:flex;flex-direction:column;height:100vh;overflow:hidden;max-width:520px;margin:0 auto;box-shadow:0 0 40px rgba(0,0,0,.25)}
-
 /* HEADER */
 .hdr{background:linear-gradient(135deg,#0A2D2D,#1E6666);color:#fff;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
 .hdr-title{font-size:15px;font-weight:700}
@@ -22,7 +21,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .cdown-l{font-size:8.5px;color:#88CCCC;margin-top:1px}
 .ibtn{background:rgba(255,255,255,.12);border:none;color:#fff;width:30px;height:30px;border-radius:7px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
 .ibtn:hover{background:rgba(255,255,255,.22)}
-
 /* TABS */
 .tabs{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;flex-shrink:0;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
@@ -32,13 +30,11 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .tb.on{border-bottom-color:var(--pr);font-weight:600}
 .tb.sp,.tb.sp.on{color:#2E7D32}
 .tb.sp.on{border-bottom-color:#2E7D32}
-
 /* MAIN */
 .main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .pg{display:none;padding-bottom:28px}
 .pg.on{display:block;animation:fi .18s ease}
 @keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
-
 /* DAY HERO */
 .dh{padding:14px 16px 12px;color:#fff}
 .dh.cty{background:linear-gradient(135deg,#3A1870,#6930C0)}
@@ -53,7 +49,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .dtag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;background:rgba(255,255,255,.18);color:#fff}
 .dtag.w{background:rgba(229,160,0,.3);color:#FFD966}
 .dtag.g{background:rgba(46,125,50,.3);color:#90EE90}
-
 /* PHOTO CARDS */
 .pcard{height:185px;border-radius:10px;margin:8px 12px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--pd),var(--pr));box-shadow:var(--sh)}
 .pcard.sm{height:130px;margin:5px 0}
@@ -68,7 +63,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .pcard.done::after{display:none}
 @keyframes shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 .photo-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 4px}
-
 /* ALERTS */
 .alo{padding:0 12px}
 .al{border-left:4px solid;padding:9px 12px;border-radius:0 8px 8px 0;font-size:12px;margin-top:8px}
@@ -80,14 +74,11 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 [data-theme=dark] .al-r{background:#3A1512;color:#FFAAAA}
 [data-theme=dark] .al-y{background:#3A2A00;color:#FFD966}
 [data-theme=dark] .al-b{background:#1A2040;color:#AABBFF}
-
 .sl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pr);padding:14px 12px 5px}
-
 /* CARD */
 .card{background:var(--sf);border-radius:var(--r);box-shadow:var(--sh);margin:8px 12px;overflow:hidden}
 .ch{padding:9px 13px;border-bottom:1px solid var(--bd);font-weight:600;font-size:12.5px;display:flex;justify-content:space-between;align-items:center}
 .cb{padding:11px 13px}
-
 /* TIMELINE */
 .tl{position:relative;padding:10px 12px 10px 32px}
 .tl::before{content:'';position:absolute;left:19px;top:14px;bottom:14px;width:2px;background:var(--bd)}
@@ -107,7 +98,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .tli.wn .tt{color:#E5A000}
 .tn{font-size:13px;font-weight:500}
 .td{font-size:11.5px;color:var(--tm);margin-top:2px}
-
 /* DETAILS/SUMMARY */
 details{margin:5px 0}
 details summary{background:var(--pl);border:1px solid #B8DEDE;border-radius:7px;padding:7px 10px;cursor:pointer;font-size:11px;font-weight:700;color:var(--pr);display:flex;justify-content:space-between;align-items:center;list-style:none;user-select:none}
@@ -125,24 +115,20 @@ details[open] summary .arr{transform:rotate(180deg)}
 details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 [data-theme=dark] details summary{background:#1A3535;border-color:#2A5050;color:#7ADDDD}
 [data-theme=dark] details.hsr summary{background:#1A2040;border-color:#404888;color:#AABBFF}
-
 /* COST */
 .cp{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:7px;margin-left:3px;background:var(--pl);color:var(--pr);border:1px solid #B8DEDE}
 .cp.t{background:#EBF0FF;color:#294098;border-color:#B0C4FF}
 .cp.r{background:#FFF0EE;color:#C94030;border-color:#FFCCC8}
 .cp.f{background:#E8F5E9;color:#2E7D32;border-color:#B0D8B4}
 .cp.o{background:#FFF3E0;color:#D57000;border-color:#FFCC80}
-
 /* MAP LINK */
 .ml{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;color:var(--pr);background:var(--pl);padding:2px 7px;border-radius:6px;border:1px solid #B8DEDE;margin-top:3px;text-decoration:none}
 .ml:hover{background:var(--pr);color:#fff}
-
 /* INNER BOXES */
 .gi{background:#E8F5E9;border:1px solid #B0D8B4;border-radius:7px;padding:8px 10px;font-size:11.5px;color:#1B4A1E;margin:4px 0}
 .wi{background:#FFF8E1;border:1px solid #FFE082;border-radius:7px;padding:8px 10px;font-size:11.5px;color:#6A4500;margin:4px 0}
 [data-theme=dark] .gi{background:#1A3A1E;color:#90EE90;border-color:#4A8A4E}
 [data-theme=dark] .wi{background:#3A2A00;color:#FFD966;border-color:#886600}
-
 /* OVERVIEW CALENDAR */
 .cal-g{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px}
 .cal-c{background:var(--sf);border-radius:10px;padding:9px 6px;text-align:center;box-shadow:var(--sh);cursor:pointer;border:2px solid transparent;transition:all .15s;overflow:hidden}
@@ -163,7 +149,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .ct-bf{background:#EEE;color:#555}
 .ct-fly{background:#FFF0EE;color:#C94030}
 [data-theme=dark] .ct-ty,.ct-tc,.ct-kh,.ct-lq,.ct-sp,.ct-bf,.ct-fly{opacity:.9}
-
 /* CHECKLIST */
 .cl-pg{display:flex;gap:10px;align-items:center;padding:10px 13px;background:var(--pl);font-size:12px;color:var(--pr)}
 .pb{flex:1;height:6px;background:var(--bd);border-radius:3px;overflow:hidden}
@@ -179,7 +164,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .cltag{font-size:10px;font-weight:600;padding:1px 6px;border-radius:6px;background:#FFF0EE;color:#C94030;margin-left:5px;vertical-align:middle}
 .cltag.ok{background:#E8F5E9;color:#2E7D32}
 .cltag.b{background:#E8F0FF;color:#294098}
-
 /* BUDGET */
 .bh{background:linear-gradient(135deg,#0A2D2D,#1E6666);color:#fff;padding:18px 16px;text-align:center}
 .bt{font-size:28px;font-weight:700;line-height:1}
@@ -188,7 +172,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .br:last-child{border-bottom:none}
 .bl2{color:var(--tm)}
 .bv{font-weight:600;color:var(--pr)}
-
 /* TRANSPORT TABLE */
 .tt2{width:100%;border-collapse:collapse;font-size:11px}
 .tt2 th{background:var(--pr);color:#fff;padding:7px 8px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.5px}
@@ -197,7 +180,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .tt2 tr:nth-child(even) td{background:var(--sf2)}
 .tc2{font-weight:700;color:var(--pr);text-align:right;white-space:nowrap}
 .tt2 .tot td{background:var(--pl)!important;font-weight:700;color:var(--pr);font-size:12px}
-
 /* QUICK LINKS */
 .ql{display:flex;flex-direction:column;gap:8px}
 .ql a{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--sf2);border-radius:9px;border:1px solid var(--bd);color:var(--tx);text-decoration:none;font-size:12.5px;font-weight:500;transition:background .15s}
@@ -207,7 +189,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 </style>
 </head>
 <body>
-
 <header class="hdr">
   <div>
     <div class="hdr-title">🇹🇼 台灣行程 2026</div>
@@ -218,7 +199,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <button class="ibtn" onclick="toggleDark()" id="dbtn" title="深色模式">🌙</button>
   </div>
 </header>
-
 <nav class="tabs">
   <button class="tb on" data-tab="ov" onclick="go('ov')">📅 總覽</button>
   <button class="tb" data-tab="d1" onclick="go('d1')">D1<span class="td">10/10六</span></button>
@@ -233,9 +213,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   <button class="tb" data-tab="cl" onclick="go('cl')">☑ 清單</button>
   <button class="tb" data-tab="bud" onclick="go('bud')">💰 預算</button>
 </nav>
-
 <main class="main" id="main">
-
 <!-- ══ OVERVIEW ══ -->
 <div class="pg on" id="ov">
   <div class="sl">📅 行程總覽</div>
@@ -249,7 +227,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="cal-c" onclick="go('d7')"><div class="cal-n">16</div><div class="cal-dow">五 FRI</div><span class="cal-city ct-bf">桃園+Xpark</span><span class="cal-note">高鐵北上</span></div>
     <div class="cal-c" onclick="go('fly')"><div class="cal-n hol">17</div><div class="cal-dow">六 SAT</div><span class="cal-city ct-fly">✈ 返馬</span><span class="cal-note hol">09:00</span></div>
   </div>
-
   <div class="sl">⚠️ 重要提醒</div>
   <div class="alo">
     <div class="al al-g">🎉 <b>10/15（四）瑞豐夜市開放</b> — 安排在 D6 佛光山後傍晚，走路即可到高鐵左營站。</div>
@@ -257,7 +234,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="al al-b">✅ <b>10/13（二）台灣好行 9127-D 週二正常班次</b> — 無需擔心。</div>
     <div class="al al-y">⚠️ <b>10/10 雙十節週六</b> — 機場可能較忙，預留 75–90 分鐘通關。</div>
   </div>
-
   <div class="sl">🔗 快速連結</div>
   <div class="cb" style="padding:0 12px 8px">
     <div class="ql">
@@ -270,7 +246,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     </div>
   </div>
 </div>
-
 <!-- ══ D1 ══ -->
 <div class="pg" id="d1">
   <div class="dh cty">
@@ -278,7 +253,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-d">2026年10月10日（六）🇹🇼 國慶日</div>
     <div class="dh-tags"><span class="dtag">桃園機場</span><span class="dtag">台中火車站</span><span class="dtag w">國慶連假</span></div>
   </div>
-  <div class="pcard" data-image="https://gcp-obs.line-scdn.net/0hyxe_18pfJldYJjZ013ZZAGFwKiZrQjNRNl5oM31yeGB3Rn0HZRU5LXhxeDNpRmBSYlxoNC90fWUiFTQCMxM" data-emoji="✈️" data-label="桃園國際機場"></div>
+  <div class="pcard" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Terminal_1_and_Control_Tower%2C_Taiwan_Taoyuan_International_Airport_20230708.jpg/800px-Terminal_1_and_Control_Tower%2C_Taiwan_Taoyuan_International_Airport_20230708.jpg" data-emoji="✈️" data-label="桃園國際機場"></div>
   <div class="alo"><div class="al al-y">⚠️ 國慶連假機場人多，預留 75–90 分鐘通關。機場客運末班約22:00，出發前查 kingbus.com.tw 確認。</div></div>
   <div class="tl">
     <div class="tli fd"><div class="tt">20:00</div><div class="tn">🛬 抵達桃園國際機場</div><div class="td">辦入境、領行李。購 SIM 卡 <span class="cp r">NT$300–500</span>、申辦悠遊卡 <span class="cp r">NT$100</span> 並儲值 NT$1,000。</div></div>
@@ -293,7 +268,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli"><div class="tt">23:30</div><div class="tn">🏨 入住台中飯店（火車站步行5分鐘內）</div><div class="td">放下行李即休息，明天從容開始。</div><a class="ml" href="https://maps.google.com/?q=台中火車站" target="_blank">📍 地圖</a></div>
   </div>
 </div>
-
 <!-- ══ D2 ══ -->
 <div class="pg" id="d2">
   <div class="dh ctc">
@@ -302,8 +276,8 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-tags"><span class="dtag">台中</span><span class="dtag g">週日最熱鬧</span></div>
   </div>
   <div class="photo-row">
-    <div class="pcard sm" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUazpyYDoQ5RC_Ee5zyexOdlml48Ha9931ru8OhD49cA&s=10" data-emoji="🦕" data-label="科博館"></div>
-    <div class="pcard sm" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn30jQV9LnzVWc_UqiRbpx5UiRM1b4z7Thi4ro37u5KQ&s=10" data-emoji="🌿" data-label="草悟道・審計新村"></div>
+    <div class="pcard sm" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/National_Museum_of_Natural_Science%2C_Taichung%2C_Aug_2024.jpg/960px-National_Museum_of_Natural_Science%2C_Taichung%2C_Aug_2024.jpg" data-emoji="🦕" data-label="科博館"></div>
+    <div class="pcard sm" data-emoji="🌿" data-label="草悟道・審計新村"></div>
   </div>
   <div class="tl">
     <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐：第一市場</div><div class="td">台中火車站旁民族路/成功路口，傳統早市，蛋餅、肉圓、豆漿。<span class="cp o">NT$80–150</span></div><a class="ml" href="https://maps.google.com/?q=台中第一市場" target="_blank">📍 地圖</a></div>
@@ -315,7 +289,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli sp"><div class="tt">19:00</div><div class="tn">🌙 旱溪夜市（每日開放）</div><div class="td">東區旱溪街，大腸包小腸、炸蛋蔥油餅、古早味豆花，少觀光客的在地夜市。Uber 直達約 NT$100。<span class="cp o">NT$200–350</span></div><a class="ml" href="https://maps.google.com/?q=台中旱溪夜市" target="_blank">📍 地圖</a></div>
   </div>
 </div>
-
 <!-- ══ D3 ══ -->
 <div class="pg" id="d3">
   <div class="dh ckh">
@@ -324,8 +297,8 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-tags"><span class="dtag">台中→高雄</span><span class="dtag">旗津海鮮</span><span class="dtag">KMC</span></div>
   </div>
   <div class="photo-row">
-    <div class="pcard sm" data-wiki="Cijin_District" data-emoji="⛵" data-label="旗津島"></div>
-    <div class="pcard sm" data-wiki="Kaohsiung_Music_Center" data-emoji="🎵" data-label="高雄流行音樂中心"></div>
+    <div class="pcard sm" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cijin_Island_from_Kaohsiung_Lighthouse.jpg/800px-Cijin_Island_from_Kaohsiung_Lighthouse.jpg" data-emoji="⛵" data-label="旗津島"></div>
+    <div class="pcard sm" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Kaohsiung_Music_Center_and_Great_Tiger_Bridge_during_2022_Taiwan_Lantern_Festival.jpg/960px-Kaohsiung_Music_Center_and_Great_Tiger_Bridge_during_2022_Taiwan_Lantern_Festival.jpg" data-emoji="🎵" data-label="高雄流行音樂中心"></div>
   </div>
   <div class="tl">
     <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐 · 整裝退房</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
@@ -351,7 +324,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli sp"><div class="tt">18:30–21:00</div><div class="tn">🌙 六合夜市（每日開放）</div><div class="td">捷運中央公園站步行5分。木瓜牛奶、海鮮粥、擔仔麵、生炒花枝。<span class="cp o">NT$250–400</span></div><a class="ml" href="https://maps.google.com/?q=六合夜市高雄" target="_blank">📍 地圖</a></div>
   </div>
 </div>
-
 <!-- ══ D4 ══ -->
 <div class="pg" id="d4">
   <div class="dh clq">
@@ -359,7 +331,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-d">2026年10月13日（二）✅ 台灣好行平日正常班次</div>
     <div class="dh-tags"><span class="dtag">高雄→小琉球</span><span class="dtag g">好行正常</span><span class="dtag">🐢 海龜島</span></div>
   </div>
-  <div class="pcard" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCGIWQUHgwBI1V4r779Yb9EJyrpZrnnHvddJ4s1bE_QA&s=10" data-emoji="🏝️" data-label="小琉球・珊瑚礁島嶼"></div>
+  <div class="pcard" data-src="https://upload.wikimedia.org/wikipedia/commons/2/2c/EO1_ALI_Lamay_Island.jpg" data-emoji="🏝️" data-label="小琉球・珊瑚礁島嶼"></div>
   <div class="tl">
     <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
     <div class="tli tr"><div class="tt">08:30</div><div class="tn">🚌 台灣好行 9127-D 左營→東港碼頭<span class="cp t">NT$107</span></div>
@@ -385,7 +357,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli wn"><div class="tt">20:00</div><div class="tn">🌟 星空觀察 / 夜間潮間帶導覽</div><div class="td">小琉球光害少，星空清晰。可向民宿詢問夜間生態導覽。<span class="cp">NT$200–350</span>。</div></div>
   </div>
 </div>
-
 <!-- ══ D5 ══ -->
 <div class="pg" id="d5">
   <div class="dh clq">
@@ -394,8 +365,8 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-tags"><span class="dtag">小琉球→高雄</span><span class="dtag">🐢 潛水</span><span class="dtag w">瑞豐週三休</span></div>
   </div>
   <div class="photo-row">
-    <div class="pcard sm" data-wiki="Vase_Rock" data-emoji="🪸" data-label="花瓶石・小琉球地標"></div>
-    <div class="pcard sm" data-wiki="Pier-2_Art_Centre" data-emoji="🎨" data-label="駁二藝術特區"></div>
+    <div class="pcard sm" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Vase_Rock%2C_Lamay_Island_2015-10-09_%28cropped%29.jpg/960px-Vase_Rock%2C_Lamay_Island_2015-10-09_%28cropped%29.jpg" data-emoji="🪸" data-label="花瓶石・小琉球地標"></div>
+    <div class="pcard sm" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kaohsiung_Love_River_20180101.jpg/960px-Kaohsiung_Love_River_20180101.jpg" data-emoji="🎨" data-label="駁二藝術特區"></div>
   </div>
   <div class="alo"><div class="al al-y">⚠️ 瑞豐夜市週三公休。今晚安排<b>駁二 + 愛河</b>，同樣精彩！明天 D6（四）才是瑞豐。</div></div>
   <div class="tl">
@@ -418,7 +389,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli sp"><div class="tt">19:30–21:30</div><div class="tn">💕 愛河河畔散步 + 晚餐</div><div class="td">駁二步行約15分可到愛河。河畔有咖啡廳、燈光倒影，鹽埕埔在地小吃。<span class="cp o">NT$250–400</span></div><a class="ml" href="https://maps.google.com/?q=愛河高雄" target="_blank">📍 愛河地圖</a></div>
   </div>
 </div>
-
 <!-- ══ D6 ══ -->
 <div class="pg" id="d6">
   <div class="dh csp">
@@ -426,7 +396,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-d">2026年10月15日（四）✅ 佛光山開放 · 夜宿高雄（明早再北上）</div>
     <div class="dh-tags"><span class="dtag">高雄全日</span><span class="dtag g">🏯 佛光山</span><span class="dtag">🛍 夢時代</span></div>
   </div>
-  <div class="pcard" data-wiki="Fo_Guang_Shan_Buddha_Museum" data-emoji="🏯" data-label="佛光山佛陀紀念館（免費）"></div>
+  <div class="pcard" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Fo_Guang_Shan_Buddha_Museum_%E4%BD%9B%E5%85%89%E5%B1%B1%E4%BD%9B%E9%99%80%E7%B4%80%E5%BF%B5%E9%A4%A8_.jpg/960px-Fo_Guang_Shan_Buddha_Museum_%E4%BD%9B%E5%85%89%E5%B1%B1%E4%BD%9B%E9%99%80%E7%B4%80%E5%BF%B5%E9%A4%A8_.jpg" data-emoji="🏯" data-label="佛光山佛陀紀念館（免費）"></div>
   <div class="alo"><div class="al al-g">🎉 D6 佛光山後不急著北上，留在高雄夜宿，明天 D7 早上才搭高鐵。愛河可從夢時代 Uber 過去，放鬆！</div></div>
   <div class="tl">
     <div class="tli fd"><div class="tt">08:00</div><div class="tn">🥣 早餐</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
@@ -442,8 +412,8 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli fd"><div class="tt">13:00</div><div class="tn">🌿 佛光山素食午餐</div><div class="td">館內平價蔬食。<span class="cp o">NT$120–200</span></div></div>
     <div class="tli tr"><div class="tt">14:00</div><div class="tn">🚗 Uber 佛光山→夢時代</div><div class="td">約45分鐘。<span class="cp t">NT$400</span></div></div>
     <div class="photo-row">
-      <div class="pcard sm" data-wiki="Dream_Mall_(Kaohsiung)" data-emoji="🛍" data-label="夢時代購物中心"></div>
-      <div class="pcard sm" data-wiki="Love_River_(Kaohsiung)" data-emoji="💕" data-label="愛河夜景"></div>
+      <div class="pcard sm" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/%E7%B5%B1%E4%B8%80%E5%A4%A2%E6%99%82%E4%BB%A3%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83.JPG/960px-%E7%B5%B1%E4%B8%80%E5%A4%A2%E6%99%82%E4%BB%A3%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83.JPG" data-emoji="🛍" data-label="夢時代購物中心"></div>
+      <div class="pcard sm" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kaohsiung_Love_River_20180101.jpg/960px-Kaohsiung_Love_River_20180101.jpg" data-emoji="💕" data-label="愛河夜景"></div>
     </div>
     <div class="tli sp"><div class="tt">14:30–17:30</div><div class="tn">🛍 夢時代 Dream Mall + 摩天輪</div><div class="td">高雄最大購物中心，屋頂摩天輪日落視角絕佳。<span class="cp">摩天輪 NT$150</span></div><a class="ml" href="https://maps.google.com/?q=夢時代高雄" target="_blank">📍 地圖</a></div>
     <div class="tli tr"><div class="tt">17:30</div><div class="tn">🚗 Uber 夢時代→愛河</div><div class="td">約20分鐘。<span class="cp t">NT$200</span></div></div>
@@ -451,7 +421,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli"><div class="tt">21:00</div><div class="tn">🏨 Uber 返高雄飯店</div><div class="td">夜宿高雄，明天 D7 早上才搭高鐵北上，不用趕！</div></div>
   </div>
 </div>
-
 <!-- ══ D7 ══ -->
 <div class="pg" id="d7">
   <div class="dh ckh" style="background:linear-gradient(135deg,#10205A,#2940A0)">
@@ -461,7 +430,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   </div>
   <div class="photo-row">
     <div class="pcard sm" data-emoji="🐠" data-label="Xpark 水族館"></div>
-    <div class="pcard sm" data-wiki="Taoyuan_City" data-emoji="🏙️" data-label="桃園市"></div>
+    <div class="pcard sm" data-emoji="🏙️" data-label="桃園市"></div>
   </div>
   <div class="tl">
     <div class="tli fd"><div class="tt">08:00</div><div class="tn">🥣 早餐</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
@@ -478,7 +447,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli"><div class="tt">晚上</div><div class="tn">🧳 整理行李 · 早點睡</div><div class="td">明天 06:00 就要出發！確認護照、電子機票、行李重量。</div></div>
   </div>
 </div>
-
 <!-- ══ FLY ══ -->
 <div class="pg" id="fly">
   <div class="dh cty">
@@ -486,7 +454,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="dh-d">2026年10月17日（六）09:00 起飛</div>
     <div class="dh-tags"><span class="dtag">桃園機場</span><span class="dtag g">旅程圓滿</span></div>
   </div>
-  <div class="pcard" data-wiki="Taiwan_Taoyuan_International_Airport" data-emoji="✈️" data-label="桃園國際機場 Taiwan Taoyuan Airport"></div>
+  <div class="pcard" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Terminal_1_and_Control_Tower%2C_Taiwan_Taoyuan_International_Airport_20230708.jpg/800px-Terminal_1_and_Control_Tower%2C_Taiwan_Taoyuan_International_Airport_20230708.jpg" data-emoji="✈️" data-label="桃園國際機場 Taiwan Taoyuan Airport"></div>
   <div class="tl">
     <div class="tli wn"><div class="tt">05:45</div><div class="tn">⏰ 起床 · 最後確認</div><div class="td">護照、電子機票、行李。台幣剩餘可在機場換回馬幣。</div></div>
     <div class="tli tr"><div class="tt">06:00</div><div class="tn">🚇 機場捷運 A18→桃園機場<span class="cp t">NT$25</span></div>
@@ -500,7 +468,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli sp"><div class="tt">09:00</div><div class="tn">✈ 班機起飛 · 返回馬來西亞！</div><div class="td">8天台灣之旅圓滿結束 🎉 帶著花瓶石的珊瑚礁、佛光山的靜謐、夢時代的摩天輪夜景、愛河的燈光倒影啟程回家。</div></div>
   </div>
 </div>
-
 <!-- ══ TRANSPORT ══ -->
 <div class="pg" id="tr">
   <div class="sl">🚆 全程交通費用</div>
@@ -539,7 +506,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     </div>
   </div>
 </div>
-
 <!-- ══ CHECKLIST ══ -->
 <div class="pg" id="cl">
   <div class="sl">☑ 出發前確認清單</div>
@@ -548,7 +514,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div id="cl-list"></div>
   </div>
 </div>
-
 <!-- ══ BUDGET ══ -->
 <div class="pg" id="bud">
   <div class="bh">
@@ -580,9 +545,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     </div>
   </div>
 </div>
-
 </main>
-
 <script>
 const CLS=[
   {id:'c1',t:'小琉球民宿（D4，10/13一晚）',s:'10月旺季，至少2個月前訂！Agoda / Booking.com 或直接搜尋電話。',tag:'最優先'},
@@ -597,12 +560,9 @@ const CLS=[
   {id:'c10',t:'暈船藥準備',s:'10月東北季風，東港↔小琉球30分鐘有浪，開船前30分鐘服用。',tag:'行李',tc:'ok'},
   {id:'c11',t:'悠遊卡 + 儲值 NT$1,000（抵台第一天）',s:'機場入境大廳有售，適用捷運、台鐵、公車、台灣好行。',tag:'到台當天',tc:'ok'},
 ];
-
 let S={tab:'ov',dark:false,checks:{}};
 try{const d=JSON.parse(localStorage.getItem('tw2026')||'{}');if(d.dark!==undefined)S.dark=d.dark;if(d.checks)S.checks=d.checks;}catch(e){}
-
 function save(){try{localStorage.setItem('tw2026',JSON.stringify({dark:S.dark,checks:S.checks}));}catch(e){}}
-
 function go(id){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
@@ -611,16 +571,13 @@ function go(id){
   document.getElementById('main').scrollTo(0,0);
   S.tab=id;
 }
-
 function toggleDark(){
   S.dark=!S.dark;
   document.documentElement.setAttribute('data-theme',S.dark?'dark':'light');
   document.getElementById('dbtn').textContent=S.dark?'☀️':'🌙';
   save();
 }
-
 if(S.dark){document.documentElement.setAttribute('data-theme','dark');document.getElementById('dbtn').textContent='☀️';}
-
 // COUNTDOWN
 function updateCD(){
   const dep=new Date('2026-10-10T20:00:00+08:00');
@@ -631,7 +588,6 @@ function updateCD(){
   else{el.textContent=Math.floor(diff/86400000);}
 }
 updateCD();setInterval(updateCD,60000);
-
 // CHECKLIST
 function renderCL(){
   const done=CLS.filter(c=>S.checks[c.id]).length;
@@ -651,47 +607,27 @@ function renderCL(){
 function toggleCL(id){S.checks[id]=!S.checks[id];save();renderCL();}
 function resetCL(){if(confirm('重置所有清單？')){S.checks={};save();renderCL();}}
 renderCL();
-
-// WIKIPEDIA PHOTO LOADER
-// Uses action API with origin=* — works from file://, localhost, AND GitHub Pages
-async function loadPhoto(card){
-  const wiki=card.dataset.wiki;
+// PHOTO LOADER — 使用獨立 data-src URL
+function loadPhoto(card){
+  const src=card.dataset.src;
   const emoji=card.dataset.emoji||'📍';
   const label=card.dataset.label||'';
-  
-  // Build card structure
   card.innerHTML='<div class="pcard-bg"></div><div class="pcard-em">'+emoji+'</div><div class="pcard-cap">'+label+'<span class="pcard-src"></span></div>';
-  
-  if(!wiki){card.classList.add('done');return;}
-  
-  try{
-    // Wikipedia action API with origin=* allows requests from ANY origin (file://, localhost, etc.)
-    const apiUrl='https://en.wikipedia.org/w/api.php?action=query&titles='+encodeURIComponent(wiki)+'&prop=pageimages&pithumbsize=640&format=json&origin=*';
-    const r=await fetch(apiUrl);
-    if(!r.ok){card.classList.add('done');return;}
-    const d=await r.json();
-    const pages=Object.values(d.query.pages);
-    const pg=pages[0];
-    if(pg&&pg.thumbnail&&pg.thumbnail.source){
-      const src=pg.thumbnail.source;
-      const img=new Image();
-      img.onload=()=>{
-        const bg=card.querySelector('.pcard-bg');
-        const em=card.querySelector('.pcard-em');
-        const src2=card.querySelector('.pcard-src');
-        if(bg){bg.style.backgroundImage='url('+src+')';bg.classList.add('show');}
-        if(em)em.classList.add('fade');
-        if(src2)src2.textContent='© Wikipedia CC';
-        card.classList.add('done');
-      };
-      img.onerror=()=>card.classList.add('done');
-      img.src=src;
-    }else{card.classList.add('done');}
-  }catch(e){card.classList.add('done');}
+  if(!src){card.classList.add('done');return;}
+  const img=new Image();
+  img.onload=()=>{
+    const bg=card.querySelector('.pcard-bg');
+    const em=card.querySelector('.pcard-em');
+    const src2=card.querySelector('.pcard-src');
+    if(bg){bg.style.backgroundImage='url('+src+')';bg.classList.add('show');}
+    if(em)em.classList.add('fade');
+    if(src2)src2.textContent='© Wikimedia';
+    card.classList.add('done');
+  };
+  img.onerror=()=>card.classList.add('done');
+  img.src=src;
 }
-
-// Load all photo cards
-document.querySelectorAll('.pcard[data-wiki]').forEach(loadPhoto);
+document.querySelectorAll('.pcard').forEach(loadPhoto);
 </script>
 </body>
 </html>
