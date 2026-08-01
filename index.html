@@ -186,6 +186,19 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .ql a:hover{background:var(--pl);color:var(--pr)}
 .ql-icon{font-size:20px;flex-shrink:0}
 .ql-r{font-size:12.5px;color:var(--tm)}
+/* MAP */
+#trip-map{height:255px;border-radius:12px;margin:0 12px;overflow:hidden;box-shadow:var(--sh);position:relative;z-index:0}
+.leaflet-popup-content{font-family:'Noto Sans TC',sans-serif;font-size:13px;line-height:1.6;margin:10px 14px}
+.leaflet-popup-content b{font-size:14px}
+.map-go{display:inline-block;margin-top:5px;font-size:12px;color:#1E6666;font-weight:700;cursor:pointer;text-decoration:none}
+.map-go:hover{text-decoration:underline}
+/* PLAN B · BIG MAP */
+#map-pg{padding-bottom:0!important;display:flex;flex-direction:column}
+.map-filter{display:flex;gap:6px;padding:9px 12px;background:var(--sf);border-bottom:1px solid var(--bd);overflow-x:auto;flex-shrink:0;scrollbar-width:none}
+.map-filter::-webkit-scrollbar{display:none}
+.mfb{flex-shrink:0;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;background:var(--sf2);color:var(--tm);border:1.5px solid var(--bd);transition:all .2s;white-space:nowrap}
+.mfb.on{background:var(--mc,var(--pr));color:#fff;border-color:transparent}
+#big-map{flex:1;min-height:350px;z-index:0}
 </style>
 </head>
 <body>
@@ -227,6 +240,8 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="cal-c" onclick="go('d7')"><div class="cal-n">16</div><div class="cal-dow">五 FRI</div><span class="cal-city ct-bf">桃園+Xpark</span><span class="cal-note">高鐵北上</span></div>
     <div class="cal-c" onclick="go('fly')"><div class="cal-n hol">17</div><div class="cal-dow">六 SAT</div><span class="cal-city ct-fly">✈ 返馬</span><span class="cal-note hol">09:00</span></div>
   </div>
+  <div class="sl">🗺️ 行程路線地圖</div>
+  <div id="trip-map"></div>
   <div class="sl">⚠️ 重要提醒</div>
   <div class="alo">
     <div class="al al-g">🎉 <b>10/15（四）瑞豐夜市開放</b> — 安排在 D6 佛光山後傍晚，走路即可到高鐵左營站。</div>
