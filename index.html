@@ -187,11 +187,16 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .ql-icon{font-size:20px;flex-shrink:0}
 .ql-r{font-size:12.5px;color:var(--tm)}
 /* MAP */
-#trip-map{height:255px;border-radius:12px;margin:0 12px;overflow:hidden;box-shadow:var(--sh);position:relative;z-index:0}
-.leaflet-popup-content{font-family:'Noto Sans TC',sans-serif;font-size:13px;line-height:1.6;margin:10px 14px}
-.leaflet-popup-content b{font-size:14px}
-.map-go{display:inline-block;margin-top:5px;font-size:12px;color:#1E6666;font-weight:700;cursor:pointer;text-decoration:none}
-.map-go:hover{text-decoration:underline}
+#trip-map{height:255px;border-radius:12px;margin:0 12px;overflow:hidden;box-shadow:var(--sh);position:relative;z-index:0;background:linear-gradient(180deg,#e8f4f8 0%,#c8e6f0 60%,#a8d4e8 100%)}
+#trip-map svg{width:100%;height:100%;display:block}
+#trip-map .map-pin{cursor:pointer}
+#trip-map .map-pin:hover rect{filter:brightness(1.15)}
+.map-popup{position:absolute;background:var(--sf);border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.18);padding:12px 14px;min-width:160px;max-width:200px;z-index:10;font-size:13px;line-height:1.5;border:1px solid var(--bd);display:none}
+.map-popup b{font-size:14px;color:var(--pr);display:block;margin-bottom:4px}
+.map-popup .mp-d{color:var(--tm);font-size:12px;margin-bottom:8px}
+.map-popup .map-go{display:inline-block;margin-top:2px;font-size:12px;color:#fff;background:var(--pr);font-weight:700;cursor:pointer;text-decoration:none;padding:5px 12px;border-radius:6px}
+.map-popup .map-go:hover{background:var(--pd)}
+.map-popup .mp-close{position:absolute;top:6px;right:8px;font-size:16px;cursor:pointer;color:var(--tm);line-height:1}
 /* PLAN B · BIG MAP */
 #map-pg{padding-bottom:0!important;display:flex;flex-direction:column}
 .map-filter{display:flex;gap:6px;padding:9px 12px;background:var(--sf);border-bottom:1px solid var(--bd);overflow-x:auto;flex-shrink:0;scrollbar-width:none}
@@ -241,7 +246,116 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="cal-c" onclick="go('fly')"><div class="cal-n hol">17</div><div class="cal-dow">六 SAT</div><span class="cal-city ct-fly">✈ 返馬</span><span class="cal-note hol">09:00</span></div>
   </div>
   <div class="sl">🗺️ 行程路線地圖</div>
-  <div id="trip-map"></div>
+  <div id="trip-map">
+    <svg viewBox="0 0 280 420" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <!-- Taiwan main island - cartoon simplified -->
+      <path d="M145 25
+        C165 30, 185 55, 180 90
+        C178 120, 175 150, 170 180
+        C168 210, 165 240, 155 270
+        C148 295, 135 315, 115 330
+        C95 340, 70 335, 55 315
+        C45 295, 42 270, 45 245
+        C48 215, 55 185, 65 155
+        C75 120, 90 90, 105 65
+        C120 40, 135 28, 145 25 Z" 
+        fill="#7ec8a3" stroke="#2a6b4f" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Small Liuqiu island -->
+      <ellipse cx="48" cy="305" rx="12" ry="8" fill="#7ec8a3" stroke="#2a6b4f" stroke-width="1.5"/>
+      <!-- Decorative waves -->
+      <path d="M25 300 Q30 295 35 300 Q40 305 45 300" fill="none" stroke="#5ba8c8" stroke-width="1.2" opacity=".6"/>
+      <path d="M22 310 Q28 305 34 310 Q40 315 46 310" fill="none" stroke="#5ba8c8" stroke-width="1" opacity=".4"/>
+      <!-- Routes -->
+      <!-- Airport bus brown dashed -->
+      <path d="M95 85 Q100 120 105 155" fill="none" stroke="#8B5A2B" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>
+      <!-- HSR 2->3 blue thick -->
+      <path d="M105 165 Q110 210 100 260" fill="none" stroke="#1a4a8a" stroke-width="3.5" stroke-linecap="round"/>
+      <!-- Taiwan Trip + ferry 3->4 -->
+      <path d="M95 270 Q80 280 60 295" fill="none" stroke="#E67E22" stroke-width="2.5" stroke-dasharray="2 3" stroke-linecap="round"/>
+      <path d="M58 298 Q52 300 48 305" fill="none" stroke="#00a8a8" stroke-width="2.2" stroke-dasharray="4 2 1 2" stroke-linecap="round"/>
+      <!-- 4->5 ferry return -->
+      <path d="M48 305 Q55 295 70 285 Q85 275 95 270" fill="none" stroke="#00a8a8" stroke-width="2" stroke-dasharray="4 2 1 2" stroke-linecap="round" opacity=".7"/>
+      <!-- 5->6 Uber purple -->
+      <path d="M95 270 Q105 255 110 250" fill="none" stroke="#9B59B6" stroke-width="2" stroke-dasharray="3 3" stroke-linecap="round"/>
+      <!-- 6->7 HSR blue -->
+      <path d="M110 250 Q115 180 100 110" fill="none" stroke="#1a4a8a" stroke-width="3.5" stroke-linecap="round"/>
+      <!-- 7->Airport MRT green -->
+      <path d="M100 105 Q98 95 95 88" fill="none" stroke="#27AE60" stroke-width="2.2" stroke-dasharray="2 2.5" stroke-linecap="round"/>
+      <!-- PIN DOTS -->
+      <circle cx="95" cy="85" r="5.5" fill="#C94030" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="105" cy="155" r="5.5" fill="#1E6666" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="108" cy="162" r="5.5" fill="#1E6666" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="95" cy="270" r="5.5" fill="#2940A0" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="48" cy="305" r="5.5" fill="#127A7A" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="98" cy="268" r="5" fill="#2940A0" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="112" cy="248" r="5.5" fill="#2E7D32" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="100" cy="108" r="5.5" fill="#2940A0" stroke="#fff" stroke-width="1.5"/>
+      <!-- LEADER LINES + LABELS -->
+      <!-- 1 & 2 Taichung LEFT -->
+      <line x1="105" y1="155" x2="55" y2="140" stroke="#1E6666" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="1" data-tab="d1" transform="translate(15,125)">
+        <rect x="0" y="0" width="42" height="22" rx="6" fill="#1E6666"/>
+        <text x="21" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">1 台中</text>
+      </g>
+      <line x1="108" y1="162" x2="55" y2="165" stroke="#1E6666" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="2" data-tab="d2" transform="translate(15,155)">
+        <rect x="0" y="0" width="42" height="22" rx="6" fill="#1E6666"/>
+        <text x="21" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">2 台中</text>
+      </g>
+      <!-- 3,5,6 Kaohsiung LEFT -->
+      <line x1="95" y1="270" x2="40" y2="250" stroke="#2940A0" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="3" data-tab="d3" transform="translate(5,235)">
+        <rect x="0" y="0" width="42" height="22" rx="6" fill="#2940A0"/>
+        <text x="21" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">3 高雄</text>
+      </g>
+      <line x1="98" y1="268" x2="40" y2="275" stroke="#2940A0" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="5" data-tab="d5" transform="translate(5,265)">
+        <rect x="0" y="0" width="48" height="22" rx="6" fill="#2940A0"/>
+        <text x="24" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">5 返高雄</text>
+      </g>
+      <line x1="112" y1="248" x2="55" y2="220" stroke="#2E7D32" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="6" data-tab="d6" transform="translate(8,205)">
+        <rect x="0" y="0" width="52" height="22" rx="6" fill="#2E7D32"/>
+        <text x="26" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">6 佛光山</text>
+      </g>
+      <!-- 4 Liuqiu LEFT -->
+      <line x1="48" y1="305" x2="15" y2="320" stroke="#127A7A" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="4" data-tab="d4" transform="translate(2,310)">
+        <rect x="0" y="0" width="48" height="22" rx="6" fill="#127A7A"/>
+        <text x="24" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">4 小琉球</text>
+      </g>
+      <!-- 7 & Airport RIGHT -->
+      <line x1="100" y1="108" x2="165" y2="95" stroke="#2940A0" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="7" data-tab="d7" transform="translate(165,80)">
+        <rect x="0" y="0" width="52" height="22" rx="6" fill="#2940A0"/>
+        <text x="26" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">7 Xpark</text>
+      </g>
+      <line x1="95" y1="85" x2="165" y2="70" stroke="#C94030" stroke-width="1" opacity=".5"/>
+      <g class="map-pin" data-id="fly" data-tab="fly" transform="translate(165,55)">
+        <rect x="0" y="0" width="55" height="22" rx="6" fill="#C94030"/>
+        <text x="27.5" y="15" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Noto Sans TC,sans-serif">✈ 機場</text>
+      </g>
+      <!-- Legend -->
+      <g transform="translate(10,385)" font-size="9" font-family="Noto Sans TC,sans-serif" fill="#333">
+        <line x1="0" y1="0" x2="14" y2="0" stroke="#1a4a8a" stroke-width="3"/>
+        <text x="18" y="3.5">高鐵</text>
+        <line x1="50" y1="0" x2="64" y2="0" stroke="#8B5A2B" stroke-width="2" stroke-dasharray="4 2"/>
+        <text x="68" y="3.5">客運</text>
+        <line x1="100" y1="0" x2="114" y2="0" stroke="#E67E22" stroke-width="2" stroke-dasharray="2 2"/>
+        <text x="118" y="3.5">好行</text>
+        <line x1="150" y1="0" x2="164" y2="0" stroke="#00a8a8" stroke-width="2" stroke-dasharray="3 1 1 1"/>
+        <text x="168" y="3.5">渡輪</text>
+        <line x1="205" y1="0" x2="219" y2="0" stroke="#9B59B6" stroke-width="1.5" stroke-dasharray="2 2"/>
+        <text x="223" y="3.5">Uber</text>
+      </g>
+    </svg>
+    <div class="map-popup" id="map-popup">
+      <span class="mp-close" onclick="closeMapPopup()">×</span>
+      <b id="mp-title"></b>
+      <div class="mp-d" id="mp-desc"></div>
+      <a class="map-go" id="mp-go" href="javascript:void(0)">看詳細行程 →</a>
+    </div>
+  </div>
   <div class="sl">⚠️ 重要提醒</div>
   <div class="alo">
     <div class="al al-g">🎉 <b>10/15（四）瑞豐夜市開放</b> — 安排在 D6 佛光山後傍晚，走路即可到高鐵左營站。</div>
@@ -640,6 +754,51 @@ function loadPhoto(card){
   img.src=src;
 }
 document.querySelectorAll('.pcard').forEach(loadPhoto);
+
+/* ── Map pins interaction ── */
+const PIN_INFO = {
+  '1': {title:'1 · 台中', desc:'D1 客運抵台中夜宿 · D2 科博館·審計新村·旱溪夜市', tab:'d1'},
+  '2': {title:'2 · 台中', desc:'D2 全日台中市區：第一市場、科博館、審計新村、旱溪夜市', tab:'d2'},
+  '3': {title:'3 · 高雄', desc:'D3 高鐵南下 · 旗津海鮮 · KMC · 六合夜市', tab:'d3'},
+  '4': {title:'4 · 小琉球', desc:'D4 登島 · 租機車 · SUP立槳 · 星空觀察', tab:'d4'},
+  '5': {title:'5 · 返高雄', desc:'D5 潛水後返高雄 · 駁二藝術特區 · 愛河散步', tab:'d5'},
+  '6': {title:'6 · 佛光山', desc:'D6 佛光山佛陀紀念館 · 夢時代 · 愛河夜景', tab:'d6'},
+  '7': {title:'7 · Xpark', desc:'D7 高鐵北上桃園 · Xpark水族館 · 機場附近入住', tab:'d7'},
+  'fly': {title:'✈ 桃園機場', desc:'10/10 抵台起點 / 10/17 09:00 返馬終點', tab:'fly'}
+};
+function showMapPopup(id, evt){
+  const info = PIN_INFO[id];
+  if(!info) return;
+  const pop = document.getElementById('map-popup');
+  document.getElementById('mp-title').textContent = info.title;
+  document.getElementById('mp-desc').textContent = info.desc;
+  const goBtn = document.getElementById('mp-go');
+  goBtn.onclick = function(){ closeMapPopup(); go(info.tab); };
+  const map = document.getElementById('trip-map');
+  const rect = map.getBoundingClientRect();
+  let x = (evt.clientX - rect.left);
+  let y = (evt.clientY - rect.top);
+  if(x > rect.width - 180) x = rect.width - 180;
+  if(x < 10) x = 10;
+  if(y > rect.height - 120) y = y - 130;
+  else y = y + 15;
+  pop.style.left = x + 'px';
+  pop.style.top = y + 'px';
+  pop.style.display = 'block';
+}
+function closeMapPopup(){
+  document.getElementById('map-popup').style.display = 'none';
+}
+document.querySelectorAll('.map-pin').forEach(function(g){
+  g.addEventListener('click', function(e){
+    e.stopPropagation();
+    showMapPopup(g.dataset.id, e);
+  });
+});
+document.getElementById('trip-map').addEventListener('click', function(e){
+  if(e.target.closest('.map-pin') || e.target.closest('.map-popup')) return;
+  closeMapPopup();
+});
 </script>
 </body>
 </html>
