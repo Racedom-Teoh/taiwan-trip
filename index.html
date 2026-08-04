@@ -5,15 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="台灣旅遊行程 2026/10/10-10/17">
 <title>🇹🇼 台灣行程 2026</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
 :root{--pr:#1E6666;--pd:#0F3D3D;--pl:#D8F2F2;--acc:#E5A000;--ok:#2E7D32;--er:#C94030;--bg:#F2F5F5;--sf:#fff;--sf2:#F7FAFB;--tx:#1A2B2B;--tm:#5A6A6A;--bd:#EEF3F3;--sh:0 1px 6px rgba(0,0,0,.09);--r:12px}
 [data-theme=dark]{--bg:#0D1F1F;--sf:#152222;--sf2:#1A2B2B;--tx:#DDEAEA;--tm:#7ABABA;--bd:#253535;--sh:0 1px 6px rgba(0,0,0,.4);--pl:#1A3535}
 *,::before,::after{box-sizing:border-box;margin:0;padding:0}
 html{height:100%;background:#555}
 body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;background:var(--bg);color:var(--tx);font-size:25px;line-height:1.7;display:flex;flex-direction:column;height:100vh;overflow:hidden;max-width:520px;margin:0 auto;box-shadow:0 0 40px rgba(0,0,0,.25)}
-/* HEADER */
 .hdr{background:linear-gradient(135deg,#0A2D2D,#1E6666);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
 .hdr-title{font-size:18px;font-weight:700}
 .hdr-sub{font-size:12px;color:#88CCCC;margin-top:2px}
@@ -23,7 +22,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .cdown-l{font-size:10px;color:#88CCCC;margin-top:2px}
 .ibtn{background:rgba(255,255,255,.12);border:none;color:#fff;width:34px;height:34px;border-radius:8px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
 .ibtn:hover{background:rgba(255,255,255,.22)}
-/* TABS */
 .tabs{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;flex-shrink:0;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tb{flex-shrink:0;padding:11px 14px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--tm);border-bottom:2.5px solid transparent;white-space:nowrap;line-height:1.25}
@@ -32,15 +30,14 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .tb.on{border-bottom-color:var(--pr);font-weight:600}
 .tb.sp,.tb.sp.on{color:#2E7D32}
 .tb.sp.on{border-bottom-color:#2E7D32}
-/* MAIN */
 .main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .pg{display:none;padding-bottom:32px}
 .pg.on{display:block;animation:fi .18s ease}
 @keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
-/* DAY HERO */
 .dh{padding:16px 16px 14px;color:#fff}
 .dh.cty{background:linear-gradient(135deg,#3A1870,#6930C0)}
 .dh.ctc{background:linear-gradient(135deg,#1B4A1E,#2E7D32)}
+.dh.cml{background:linear-gradient(135deg,#0A3848,#1A6878)}
 .dh.ckh{background:linear-gradient(135deg,#10205A,#2940A0)}
 .dh.clq{background:linear-gradient(135deg,#0A3535,#1E6666)}
 .dh.csp{background:linear-gradient(135deg,#0F3A10,#2E7D32)}
@@ -51,7 +48,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .dtag{font-size:12px;font-weight:600;padding:3px 10px;border-radius:8px;background:rgba(255,255,255,.18);color:#fff}
 .dtag.w{background:rgba(229,160,0,.3);color:#FFD966}
 .dtag.g{background:rgba(46,125,50,.3);color:#90EE90}
-/* PHOTO CARDS */
 .pcard{height:200px;border-radius:10px;margin:10px 12px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--pd),var(--pr));box-shadow:var(--sh)}
 .pcard.sm{height:145px;margin:6px 0}
 .pcard-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .5s ease}
@@ -65,7 +61,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .pcard.done::after{display:none}
 @keyframes shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 .photo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px 6px}
-/* ALERTS */
 .alo{padding:0 12px}
 .al{border-left:4px solid;padding:11px 14px;border-radius:0 8px 8px 0;font-size:14px;margin-top:10px}
 .al-g{background:#E8F5E9;border-color:#2E7D32;color:#1B4A1E}
@@ -77,11 +72,9 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 [data-theme=dark] .al-y{background:#3A2A00;color:#FFD966}
 [data-theme=dark] .al-b{background:#1A2040;color:#AABBFF}
 .sl{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pr);padding:16px 12px 6px}
-/* CARD */
 .card{background:var(--sf);border-radius:var(--r);box-shadow:var(--sh);margin:10px 12px;overflow:hidden}
 .ch{padding:11px 14px;border-bottom:1px solid var(--bd);font-weight:600;font-size:14px;display:flex;justify-content:space-between;align-items:center}
 .cb{padding:13px 14px}
-/* TIMELINE */
 .tl{position:relative;padding:12px 12px 12px 36px}
 .tl::before{content:'';position:absolute;left:21px;top:16px;bottom:16px;width:2px;background:var(--bd)}
 .tli{position:relative;margin-bottom:16px}
@@ -100,7 +93,6 @@ body{font-family:'Noto Sans TC',-apple-system,'Microsoft JhengHei',sans-serif;ba
 .tli.wn .tt{color:#E5A000}
 .tn{font-size:15px;font-weight:500}
 .td{font-size:13.5px;color:var(--tm);margin-top:3px}
-/* DETAILS/SUMMARY */
 details{margin:6px 0}
 details summary{background:var(--pl);border:1px solid #B8DEDE;border-radius:8px;padding:9px 12px;cursor:pointer;font-size:13px;font-weight:700;color:var(--pr);display:flex;justify-content:space-between;align-items:center;list-style:none;user-select:none}
 details summary::-webkit-details-marker{display:none}
@@ -117,21 +109,17 @@ details[open] summary .arr{transform:rotate(180deg)}
 details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 [data-theme=dark] details summary{background:#1A3535;border-color:#2A5050;color:#7ADDDD}
 [data-theme=dark] details.hsr summary{background:#1A2040;border-color:#404888;color:#AABBFF}
-/* COST */
 .cp{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:7px;margin-left:4px;background:var(--pl);color:var(--pr);border:1px solid #B8DEDE}
 .cp.t{background:#EBF0FF;color:#294098;border-color:#B0C4FF}
 .cp.r{background:#FFF0EE;color:#C94030;border-color:#FFCCC8}
 .cp.f{background:#E8F5E9;color:#2E7D32;border-color:#B0D8B4}
 .cp.o{background:#FFF3E0;color:#D57000;border-color:#FFCC80}
-/* MAP LINK */
 .ml{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--pr);background:var(--pl);padding:3px 9px;border-radius:6px;border:1px solid #B8DEDE;margin-top:4px;text-decoration:none}
 .ml:hover{background:var(--pr);color:#fff}
-/* INNER BOXES */
 .gi{background:#E8F5E9;border:1px solid #B0D8B4;border-radius:8px;padding:10px 12px;font-size:13.5px;color:#1B4A1E;margin:5px 0}
 .wi{background:#FFF8E1;border:1px solid #FFE082;border-radius:8px;padding:10px 12px;font-size:13.5px;color:#6A4500;margin:5px 0}
 [data-theme=dark] .gi{background:#1A3A1E;color:#90EE90;border-color:#4A8A4E}
 [data-theme=dark] .wi{background:#3A2A00;color:#FFD966;border-color:#886600}
-/* OVERVIEW CALENDAR */
 .cal-g{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px}
 .cal-c{background:var(--sf);border-radius:10px;padding:11px 6px;text-align:center;box-shadow:var(--sh);cursor:pointer;border:2px solid transparent;transition:all .15s;overflow:hidden}
 .cal-c:hover{border-color:var(--pr);transform:translateY(-1px)}
@@ -145,13 +133,13 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .cal-note.g{color:#2E7D32}
 .ct-ty{background:#F3E8FF;color:#5B2A8A}
 .ct-tc{background:#E3F2E6;color:#2E6B3C}
+.ct-ml{background:#D0EEF8;color:#1A4A60}
 .ct-kh{background:#E8EFFF;color:#294098}
 .ct-lq{background:#D8F0F0;color:#1E5555}
 .ct-sp{background:#E8F5E9;color:#2E7D32;border:1px solid #B0D8B4}
 .ct-bf{background:#EEE;color:#555}
 .ct-fly{background:#FFF0EE;color:#C94030}
-[data-theme=dark] .ct-ty,.ct-tc,.ct-kh,.ct-lq,.ct-sp,.ct-bf,.ct-fly{opacity:.9}
-/* CHECKLIST */
+[data-theme=dark] .ct-ty,.ct-tc,.ct-ml,.ct-kh,.ct-lq,.ct-sp,.ct-bf,.ct-fly{opacity:.9}
 .cl-pg{display:flex;gap:12px;align-items:center;padding:12px 14px;background:var(--pl);font-size:14px;color:var(--pr)}
 .pb{flex:1;height:7px;background:var(--bd);border-radius:4px;overflow:hidden}
 .pbf{height:100%;background:var(--pr);border-radius:4px;transition:width .3s}
@@ -166,7 +154,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .cltag{font-size:12px;font-weight:600;padding:2px 7px;border-radius:6px;background:#FFF0EE;color:#C94030;margin-left:6px;vertical-align:middle}
 .cltag.ok{background:#E8F5E9;color:#2E7D32}
 .cltag.b{background:#E8F0FF;color:#294098}
-/* BUDGET */
 .bh{background:linear-gradient(135deg,#0A2D2D,#1E6666);color:#fff;padding:22px 16px;text-align:center}
 .bt{font-size:32px;font-weight:700;line-height:1}
 .bl{font-size:13px;color:#88CCCC;margin-top:5px}
@@ -174,7 +161,6 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .br:last-child{border-bottom:none}
 .bl2{color:var(--tm)}
 .bv{font-weight:600;color:var(--pr)}
-/* TRANSPORT TABLE */
 .tt2{width:100%;border-collapse:collapse;font-size:13px}
 .tt2 th{background:var(--pr);color:#fff;padding:9px 10px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.5px}
 .tt2 td{padding:9px 10px;border-bottom:1px solid var(--bd);vertical-align:top}
@@ -182,31 +168,17 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
 .tt2 tr:nth-child(even) td{background:var(--sf2)}
 .tc2{font-weight:700;color:var(--pr);text-align:right;white-space:nowrap}
 .tt2 .tot td{background:var(--pl)!important;font-weight:700;color:var(--pr);font-size:14px}
-/* QUICK LINKS */
 .ql{display:flex;flex-direction:column;gap:10px}
 .ql a{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--sf2);border-radius:10px;border:1px solid var(--bd);color:var(--tx);text-decoration:none;font-size:14.5px;font-weight:500;transition:background .15s}
 .ql a:hover{background:var(--pl);color:var(--pr)}
 .ql-icon{font-size:20px;flex-shrink:0}
 .ql-r{font-size:12.5px;color:var(--tm)}
-/* MAP */
 #trip-map{height:255px;border-radius:12px;margin:0 12px;overflow:hidden;box-shadow:var(--sh);position:relative;z-index:0;background:#e8f0f0}
 .leaflet-container{font-family:'Noto Sans TC',sans-serif;background:#e8f0f0}
 .leaflet-popup-content{font-family:'Noto Sans TC',sans-serif;font-size:13px;line-height:1.55;margin:10px 12px}
 .leaflet-popup-content b{font-size:14px;color:#1E6666}
 .leaflet-popup-content .map-go{display:inline-block;margin-top:6px;font-size:12px;color:#fff;background:#1E6666;font-weight:700;cursor:pointer;text-decoration:none;padding:5px 12px;border-radius:6px}
 .leaflet-popup-content .map-go:hover{background:#0F3D3D}
-.num-icon{background:#1E6666;color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.num-icon.airport{background:#C94030}
-.num-icon.lq{background:#127A7A}
-.num-icon.fgs{background:#2E7D32}
-.num-icon.kh{background:#2940A0}
-/* PLAN B · BIG MAP */
-#map-pg{padding-bottom:0!important;display:flex;flex-direction:column}
-.map-filter{display:flex;gap:6px;padding:9px 12px;background:var(--sf);border-bottom:1px solid var(--bd);overflow-x:auto;flex-shrink:0;scrollbar-width:none}
-.map-filter::-webkit-scrollbar{display:none}
-.mfb{flex-shrink:0;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;background:var(--sf2);color:var(--tm);border:1.5px solid var(--bd);transition:all .2s;white-space:nowrap}
-.mfb.on{background:var(--mc,var(--pr));color:#fff;border-color:transparent}
-#big-map{flex:1;min-height:350px;z-index:0}
 </style>
 </head>
 <body>
@@ -235,13 +207,14 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   <button class="tb" data-tab="bud" onclick="go('bud')">💰 預算</button>
 </nav>
 <main class="main" id="main">
+
 <!-- ══ OVERVIEW ══ -->
 <div class="pg on" id="ov">
   <div class="sl">📅 行程總覽</div>
   <div class="cal-g">
     <div class="cal-c" onclick="go('d1')"><div class="cal-n hol">10</div><div class="cal-dow">六 SAT</div><span class="cal-city ct-ty">桃園→台中</span><span class="cal-note hol">🇹🇼 國慶日</span></div>
-    <div class="cal-c" onclick="go('d2')"><div class="cal-n">11</div><div class="cal-dow">日 SUN</div><span class="cal-city ct-tc">台中</span><span class="cal-note">科博館·旱溪</span></div>
-    <div class="cal-c" onclick="go('d3')"><div class="cal-n">12</div><div class="cal-dow">一 MON</div><span class="cal-city ct-kh">高雄</span><span class="cal-note">旗津·KMC</span></div>
+    <div class="cal-c" onclick="go('d2')"><div class="cal-n">11</div><div class="cal-dow">日 SUN</div><span class="cal-city ct-ml">日月潭</span><span class="cal-note">遊湖·伊達邵</span></div>
+    <div class="cal-c" onclick="go('d3')"><div class="cal-n">12</div><div class="cal-dow">一 MON</div><span class="cal-city ct-kh">九族→高雄</span><span class="cal-note">日出·末班16:00</span></div>
     <div class="cal-c" onclick="go('d4')"><div class="cal-n">13</div><div class="cal-dow">二 TUE</div><span class="cal-city ct-lq">小琉球</span><span class="cal-note g">SUP·星空</span></div>
     <div class="cal-c" onclick="go('d5')"><div class="cal-n">14</div><div class="cal-dow">三 WED</div><span class="cal-city ct-lq">小琉球↩高雄</span><span class="cal-note">潛水·駁二·愛河</span></div>
     <div class="cal-c" onclick="go('d6')" style="border-color:#2E7D32"><div class="cal-n sp">15</div><div class="cal-dow">四 THU</div><span class="cal-city ct-sp">佛光山+瑞豐</span><span class="cal-note g">🎉 瑞豐開放！</span></div>
@@ -252,23 +225,27 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   <div id="trip-map"></div>
   <div class="sl">⚠️ 重要提醒</div>
   <div class="alo">
-    <div class="al al-g">🎉 <b>10/15（四）瑞豐夜市開放</b> — 安排在 D6 佛光山後傍晚，走路即可到高鐵左營站。</div>
-    <div class="al al-r">⚠️ <b>10/14（三）瑞豐夜市週三公休</b> — D5 晚上改駁二＋愛河河畔散步。</div>
-    <div class="al al-b">✅ <b>10/13（二）台灣好行 9127-D 週二正常班次</b> — 無需擔心。</div>
+    <div class="al al-g">🎉 <b>10/15（四）瑞豐夜市開放</b> — D6 佛光山後傍晚直達，完美接上！</div>
+    <div class="al al-r">⚠️ <b>佛陀紀念館週二休館</b> — 佛光山安排在 D6（10/15 週四），週四開放至 19:00，不會衝突。</div>
+    <div class="al al-y">⚠️ <b>日月潭纜車末班 16:00（平日）</b> — D3 售票截止 15:30，九族玩到 15:45 就要走！</div>
+    <div class="al al-b">✅ <b>6670 干城站是首發站</b> — D2 務必在台中干城站上車，台中火車站是中途站，滿車可能不停！</div>
     <div class="al al-y">⚠️ <b>10/10 雙十節週六</b> — 機場可能較忙，預留 75–90 分鐘通關。</div>
   </div>
   <div class="sl">🔗 快速連結</div>
   <div class="cb" style="padding:0 12px 10px">
     <div class="ql">
       <a href="https://www.thsrc.com.tw" target="_blank"><span class="ql-icon">🚄</span><div><div>台灣高鐵</div><div class="ql-r">thsrc.com.tw — 訂早鳥票（提前28天）</div></div></a>
+      <a href="https://www.taiwantrip.com.tw/Frontend/Bustime/TimeTable/R0005" target="_blank"><span class="ql-icon">🚌</span><div><div>台灣好行日月潭線時刻表</div><div class="ql-r">6670 干城站→日月潭 平日/假日班次</div></div></a>
+      <a href="https://www.nine.com.tw" target="_blank"><span class="ql-icon">🚡</span><div><div>九族文化村</div><div class="ql-r">nine.com.tw — 開放時間、纜車資訊</div></div></a>
       <a href="https://ferry.tw/time-table/liuqiu" target="_blank"><span class="ql-icon">⛴</span><div><div>飛魚船票網</div><div class="ql-r">ferry.tw — 小琉球東琉線班次</div></div></a>
-      <a href="https://www.taiwantrip.com.tw" target="_blank"><span class="ql-icon">🚌</span><div><div>台灣好行</div><div class="ql-r">taiwantrip.com.tw — 9127-D 班次確認</div></div></a>
-      <a href="https://fgsbmc.org.tw" target="_blank"><span class="ql-icon">🏯</span><div><div>佛光山佛陀紀念館</div><div class="ql-r">fgsbmc.org.tw — 開放時間、活動</div></div></a>
+      <a href="https://www.taiwantrip.com.tw/Frontend/Bustime/TimeTable/R0065" target="_blank"><span class="ql-icon">🚌</span><div><div>台灣好行大鵬灣琉球線</div><div class="ql-r">9127-D 左營→東港 每日班次</div></div></a>
+      <a href="https://ksbus.com.tw/bus_info.asp?id=105" target="_blank"><span class="ql-icon">🚌</span><div><div>E02 哈佛快線（佛光山）</div><div class="ql-r">左營高鐵站→佛陀紀念館 時刻表</div></div></a>
       <a href="https://www.xpark.com.tw" target="_blank"><span class="ql-icon">🐠</span><div><div>Xpark 水族館</div><div class="ql-r">xpark.com.tw — 訂票（建議提前）</div></div></a>
       <a href="https://www.tymetro.com.tw" target="_blank"><span class="ql-icon">🚇</span><div><div>桃園機場捷運</div><div class="ql-r">tymetro.com.tw — A18→機場班次</div></div></a>
     </div>
   </div>
 </div>
+
 <!-- ══ D1 ══ -->
 <div class="pg" id="d1">
   <div class="dh cty">
@@ -288,98 +265,121 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
         <div class="scr"><div class="sd">車程</div><div class="si">約1.5–2小時，抵台中約23:00–23:30</div></div>
       </div></details>
     </div>
-    <div class="tli"><div class="tt">23:30</div><div class="tn">🏨 入住台中飯店（火車站步行5分鐘內）</div><div class="td">放下行李即休息，明天從容開始。</div><a class="ml" href="https://maps.google.com/?q=台中火車站" target="_blank">📍 地圖</a></div>
+    <div class="tli"><div class="tt">23:30</div><div class="tn">🏨 入住台中飯店（火車站步行5分鐘內）</div><div class="td">放下行李即休息，明天從容出發日月潭！</div><a class="ml" href="https://maps.google.com/?q=台中火車站" target="_blank">📍 地圖</a></div>
   </div>
 </div>
+
 <!-- ══ D2 ══ -->
 <div class="pg" id="d2">
-  <div class="dh ctc">
-    <div class="dh-t">D2 · 台中：市場 · 科博館 · 審計新村 · 旱溪夜市</div>
-    <div class="dh-d">2026年10月11日（日）</div>
-    <div class="dh-tags"><span class="dtag">台中</span><span class="dtag g">週日最熱鬧</span></div>
+  <div class="dh cml">
+    <div class="dh-t">D2 · 日月潭：遊湖 · 文武廟 · 伊達邵 · 夜宿纜車附近</div>
+    <div class="dh-d">2026年10月11日（日）假日</div>
+    <div class="dh-tags"><span class="dtag">台中→日月潭</span><span class="dtag g">假日班次充足</span><span class="dtag">🚡 纜車附近住宿</span></div>
   </div>
-  <div class="photo-row">
-    <div class="pcard sm" data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq566o424S9cDYCPN6HoFBJ4UMX4bVnDWwOeJbYd7ccqG4oOM-Vy3s3bk6&s=10" data-emoji="🦕" data-label="科博館"></div>
-    <div class="pcard sm" data-src="https://travel.taichung.gov.tw/image/63099/1024x768" data-label="草悟道・審計新村"></div>
+  <div class="pcard" data-src="https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_A12-00299_8.jpg" data-emoji="🏔️" data-label="日月潭・台灣最美高山湖泊"></div>
+  <div class="alo">
+    <div class="al al-r">⚠️ <b>務必在台中干城站上車！</b>台中火車站是中途停靠站，滿車可能不停。干城站距火車站步行約10分鐘。</div>
+    <div class="al al-b">📋 <b>今晚住宿選伊達邵附近</b> — 靠近纜車站步行 5 分鐘，明天一早看日出直接去搭纜車，最方便！</div>
   </div>
   <div class="tl">
-    <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐：第一市場</div><div class="td">台中火車站旁民族路/成功路口，傳統早市，蛋餅、肉圓、豆漿。<span class="cp o">NT$80–150</span></div><a class="ml" href="https://maps.google.com/?q=台中第一市場" target="_blank">📍 地圖</a></div>
-    <div class="tli"><div class="tt">09:00</div><div class="tn">🏛 台中舊火車站 · 宮原眼科</div><div class="td">1917年巴洛克式老站拍照，宮原眼科（10:00開門）冰淇淋伴手禮。</div><a class="ml" href="https://maps.google.com/?q=宮原眼科台中" target="_blank">📍 宮原眼科</a></div>
-    <div class="tli sp"><div class="tt">10:30</div><div class="tn">🦕 國立自然科學博物館</div><div class="td">台灣最大自然史博物館，恐龍廳、太空劇場。09:00–17:00，週二休。<span class="cp">NT$100</span></div><a class="ml" href="https://maps.google.com/?q=國立自然科學博物館台中" target="_blank">📍 地圖</a></div>
-    <div class="tli fd"><div class="tt">13:00</div><div class="tn">🍱 午餐</div><div class="td">台中火車站附近台式快炒、魚丸湯。<span class="cp o">NT$150–250</span></div></div>
-    <div class="tli sp"><div class="tt">14:30</div><div class="tn">🎨 審計新村 + 草悟道</div><div class="td">Uber 約 NT$120。<b>審計新村</b>（西區民生路368巷）週日文創攤最熱鬧；步行接 <b>草悟道</b> 1.7公里綠帶，文青書店、特色咖啡廳。</div><a class="ml" href="https://maps.google.com/?q=台中審計新村" target="_blank">📍 審計新村</a></div>
-    <div class="tli"><div class="tt">17:30</div><div class="tn">🏨 返飯店休息</div></div>
-    <div class="tli sp"><div class="tt">19:00</div><div class="tn">🌙 旱溪夜市（每日開放）</div><div class="td">東區旱溪街，大腸包小腸、炸蛋蔥油餅、古早味豆花，少觀光客的在地夜市。Uber 直達約 NT$100。<span class="cp o">NT$200–350</span></div><a class="ml" href="https://maps.google.com/?q=台中旱溪夜市" target="_blank">📍 地圖</a></div>
+    <div class="tli fd"><div class="tt">09:00</div><div class="tn">🥣 早餐（台中火車站附近）</div><div class="td">前一晚到得晚，慢慢吃，不用趕。<span class="cp o">NT$80–150</span></div></div>
+    <div class="tli tr"><div class="tt">09:20</div><div class="tn">🚌 6670 台灣好行日月潭線 · 台中干城站出發</div><div class="td">首發站出發，保證有座位。<b>假日班次較多，建議刷悠遊卡</b>。</div>
+      <details><summary>🚌 假日班次（推薦）<span class="arr">▼</span></summary><div class="scb">
+        <div class="scr"><div class="sd">09:20</div><div class="sa">→ 11:05</div><div class="si">推薦 · 直達水社碼頭</div><div class="sp2">NT$168 IC</div></div>
+        <div class="scr"><div class="sd">09:45</div><div class="sa">→ 11:40</div><div class="si">停九族（可不下車）</div><div class="sp2">NT$168 IC</div></div>
+        <div class="scr"><div class="sd">10:20</div><div class="sa">→ 12:05</div><div class="si">備選</div><div class="sp2">NT$168 IC</div></div>
+        <div class="scr"><div class="sd">現金票</div><div class="si">NT$193，可刷悠遊卡折扣</div></div>
+        <div class="scr"><div class="sd">查詢</div><div class="si">taiwantrip.com.tw → 日月潭線 → 假日時刻表</div></div>
+      </div></details>
+    </div>
+    <div class="tli lq"><div class="tt">11:05</div><div class="tn">🚢 抵日月潭水社碼頭 · 買遊湖船日票</div><div class="td">遊湖船日票可無限次搭水社↔玄光寺↔伊達邵三站。<span class="cp">NT$300</span><br>順便租電動腳踏車，騎水社湖岸。<span class="cp">NT$200</span></div><a class="ml" href="https://maps.google.com/?q=日月潭水社碼頭" target="_blank">📍 水社碼頭</a></div>
+    <div class="tli sp"><div class="tt">11:30–13:00</div><div class="tn">🚲 騎車 → 文武廟</div><div class="td">從水社碼頭騎車約 3–4 公里，文武廟俯瞰日月潭全景，拍照絕佳！廟宇氣勢磅礡，免費入場。</div><a class="ml" href="https://maps.google.com/?q=文武廟日月潭" target="_blank">📍 文武廟</a></div>
+    <div class="tli lq"><div class="tt">13:00</div><div class="tn">⛴ 搭遊湖船到玄光寺</div><div class="td">上岸吃知名涵碧茶葉蛋，拍朝向湖面的廟景，超出片。</div></div>
+    <div class="tli fd"><div class="tt">13:30</div><div class="tn">⛴ 搭船到伊達邵 · 午餐</div><div class="td">伊達邵商圈，阿婆茶葉蛋、炸甜不辣、原住民烤肉、石頭火鍋。<span class="cp o">NT$200–350</span></div><a class="ml" href="https://maps.google.com/?q=伊達邵日月潭" target="_blank">📍 伊達邵</a></div>
+    <div class="tli sp"><div class="tt">15:00–17:00</div><div class="tn">🛍 伊達邵商圈逛逛</div><div class="td">原住民手工藝、特色伴手禮。或搭船回水社再騎一段湖岸看夕陽方向。</div></div>
+    <div class="tli"><div class="tt">17:30</div><div class="tn">🏨 入住民宿（伊達邵附近，靠纜車站）</div><div class="td"><b>⭐ 必須提前訂！10月旺季難搶</b>。選靠近日月潭纜車站（水社纜車站）步行 5 分鐘內的民宿，明天直接走去搭纜車！</div></div>
+    <div class="tli fd"><div class="tt">19:00</div><div class="tn">🍢 晚餐 · 伊達邵夜間小攤</div><div class="td">石頭火鍋、山豬肉、原住民風味小吃。<span class="cp o">NT$200–350</span></div></div>
+    <div class="tli wn"><div class="tt">20:30</div><div class="tn">🌟 日月潭夜景散步</div><div class="td">湖邊燈光倒映如鏡，早點休息，明天 06:00 要看日出！</div></div>
   </div>
 </div>
+
 <!-- ══ D3 ══ -->
 <div class="pg" id="d3">
-  <div class="dh ckh">
-    <div class="dh-t">D3 · 高鐵南下 · 旗津 · KMC · 六合夜市</div>
-    <div class="dh-d">2026年10月12日（一）</div>
-    <div class="dh-tags"><span class="dtag">台中→高雄</span><span class="dtag">旗津海鮮</span><span class="dtag">KMC</span></div>
+  <div class="dh cml">
+    <div class="dh-t">D3 · 日月潭日出 · 九族文化村 · 高鐵南下高雄 · 六合夜市</div>
+    <div class="dh-d">2026年10月12日（一）平日</div>
+    <div class="dh-tags"><span class="dtag">日月潭→九族→高雄</span><span class="dtag w">末班纜車 16:00</span><span class="dtag">🌅 日出晨霧</span></div>
   </div>
   <div class="photo-row">
-    <div class="pcard sm" data-src="https://tlife.thsrc.com.tw/s3/post/20210806-KKIOoGYGzEtgQXr2Gad05Up5NoeEtH6nAbbTHGX9.png" data-emoji="⛵" data-label="旗津島"></div>
-    <div class="pcard sm" data-src="https://kpmc.com.tw/wp-content/uploads/2023/11/%E5%9C%966%EF%BC%9A%E8%A9%95%E5%AF%A9%E5%9C%98%E8%82%AF%E5%AE%9A%E6%B5%B7%E9%9F%B3%E9%A4%A8%E6%89%80%E6%9C%89%E7%89%86%E9%9D%A2%E9%80%8F%E9%81%8E%E7%AC%AC%E4%B8%80%E5%B1%A4%E6%A1%86%E6%9E%B6%E7%B5%90%E6%A7%8B%E5%8F%8A%E7%AC%AC%E4%BA%8C%E5%B1%A4%E7%99%BE%E8%91%89%E7%AD%89%E5%85%A9%E5%B1%A4%E7%B5%90%E6%A7%8B%E7%B5%84%E6%88%90%EF%BC%8C%E9%99%8D%E4%BD%8E%E5%A4%A7%E9%87%8F%E9%AB%94%E5%B8%B6%E4%BE%86%E7%9A%84%E5%A3%93%E8%BF%AB%E6%84%9F%E3%80%82%E9%AB%98%E6%B5%81%E6%8F%90%E4%BE%9B-scaled.jpg" data-emoji="🎵" data-label="高雄流行音樂中心"></div>
+    <div class="pcard sm" data-src="https://tenjo.tw/wp-content/uploads/20210309222653_3.jpg" data-emoji="🌅" data-label="日月潭晨霧・全台最美日出"></div>
+    <div class="pcard sm" data-src="https://i0.wp.com/farm66.static.flickr.com/65535/52830354758_9428d55dc3_z.jpg?w=1200&ssl=1" data-emoji="🚡" data-label="日月潭纜車・飛越山頭到九族"></div>
+  </div>
+  <div class="alo">
+    <div class="al al-r">⚠️ <b>纜車末班下山 16:00，售票截止 15:30！</b> 15:45 前一定要在纜車站，否則就被困在九族了。</div>
+    <div class="al al-b">✅ <b>10/12 週一 = 平日</b>，纜車 10:30 開放，九族 09:30 開放（纜車比九族晚，以纜車為準）。</div>
   </div>
   <div class="tl">
-    <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐 · 整裝退房</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
-    <div class="tli tr"><div class="tt">08:20</div><div class="tn">🚂 台鐵 台中→新烏日（高鐵台中站）</div>
-      <details><summary>🚂 班次<span class="arr">▼</span></summary><div class="scb">
-        <div class="scr"><div class="sd">08:26</div><div class="sa">→ 08:34</div><div class="si">區間車 8分 刷悠遊卡</div><div class="sp2">NT$25</div></div>
-        <div class="scr"><div class="sd">08:41</div><div class="sa">→ 08:49</div><div class="si">區間車</div><div class="sp2">NT$25</div></div>
+    <div class="tli wn"><div class="tt">06:00</div><div class="tn">🌅 湖邊看日出（步行即到）</div><div class="td">日月潭晨霧飄在水面，是全台最經典的風景之一。從民宿走路就到湖邊，不用 Uber！</div></div>
+    <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐</div><div class="td">伊達邵附近簡單吃，<span class="cp o">NT$80–150</span></div></div>
+    <div class="tli"><div class="tt">08:30</div><div class="tn">🧳 整裝退房 · 行李寄放民宿</div><div class="td">民宿通常可以寄放行李，下午搭巴士前再來取。</div></div>
+    <div class="tli sp"><div class="tt">10:30</div><div class="tn">🚡 日月潭纜車 → 九族文化村</div><div class="td">從纜車站步行 5 分鐘即達（民宿選對地方就超方便！）。平日 10:30 開放，飛越山頭約 7 分鐘，高空俯瞰湖景絕美。<span class="cp">NT$300 來回</span></div><a class="ml" href="https://maps.google.com/?q=日月潭纜車站" target="_blank">📍 纜車站</a></div>
+    <div class="tli sp"><div class="tt">10:30–15:45</div><div class="tn">🎭 九族文化村（約 5 小時）</div><div class="td">原住民歌舞表演（進場查時刻表）、高空吊橋、主題遊樂設施、日式庭院。<span class="cp">NT$850</span><br><b>⚠️ 15:30 售票截止，15:45 最遲要去搭纜車！</b></div><a class="ml" href="https://www.nine.com.tw" target="_blank">🌐 九族官網</a></div>
+    <div class="tli tr"><div class="tt">16:00</div><div class="tn">🚡 末班纜車下山</div><div class="td">走回水社方向巴士站，約 10–15 分鐘。</div></div>
+    <div class="tli tr"><div class="tt">16:40</div><div class="tn">🚌 6670 返程 · 日月潭→高鐵台中站</div><div class="td">在水社碼頭附近站牌上車，抵<b>高鐵台中站約 18:00</b>，直接下車轉高鐵！<span class="cp t">NT$168 IC</span></div>
+      <details><summary>🚌 返程班次（平日）<span class="arr">▼</span></summary><div class="scb">
+        <div class="scr"><div class="sd">16:40</div><div class="sa">→ 18:00</div><div class="si">推薦 · 高鐵台中站下</div><div class="sp2">NT$168</div></div>
+        <div class="scr"><div class="sd">17:10</div><div class="sa">→ 18:50</div><div class="si">備選（稍晚到高雄）</div><div class="sp2">NT$168</div></div>
+        <div class="scr"><div class="sd">18:25</div><div class="sa">→ 19:50</div><div class="si">最晚班次</div><div class="sp2">NT$168</div></div>
+        <div class="scr"><div class="sd">注意</div><div class="si">在「高鐵臺中站」下車，不要到干城站終點</div></div>
       </div></details>
     </div>
-    <div class="tli tr"><div class="tt">09:00</div><div class="tn">🚄 高鐵 台中→左營<span class="cp t">NT$790</span></div>
+    <div class="tli tr"><div class="tt">18:10</div><div class="tn">🚄 高鐵 台中→左營<span class="cp t">NT$790</span></div>
       <details class="hsr"><summary>🚄 高鐵班次<span class="arr">▼</span></summary><div class="scb">
-        <div class="scr"><div class="sd">09:00</div><div class="sa">→ 09:51</div><div class="si">標準座 51分</div><div class="sp2">NT$790</div></div>
-        <div class="scr"><div class="sd">09:30</div><div class="sa">→ 10:22</div><div class="si">標準座 52分</div><div class="sp2">NT$790</div></div>
+        <div class="scr"><div class="sd">18:00後</div><div class="sa">→ 約19:00</div><div class="si">抵台中高鐵站後搭第一班</div><div class="sp2">NT$790</div></div>
         <div class="scr"><div class="sd">早鳥75折</div><div class="si">提前28天 約NT$593，thsrc.com.tw</div></div>
+        <div class="scr"><div class="sd">車程</div><div class="si">台中→左營 約 51 分鐘</div></div>
       </div></details>
     </div>
-    <div class="tli"><div class="tt">10:30</div><div class="tn">🏨 抵左營 · 寄放行李</div><div class="td">Uber 至飯店寄放，輕裝出發旗津。<span class="cp t">NT$100–150</span></div></div>
-    <div class="tli tr"><div class="tt">11:00</div><div class="tn">🚇 捷運 左營→西子灣→鼓山輪渡</div><div class="td">R17→R8 約12分 <span class="cp t">NT$25</span>，步行8分至輪渡站。</div></div>
-    <div class="tli lq"><div class="tt">11:30</div><div class="tn">⛴ 鼓山輪渡→旗津<span class="cp">NT$15</span></div><div class="td">5–10分鐘一班，船程約5–10分鐘。</div><a class="ml" href="https://maps.google.com/?q=鼓山輪渡站高雄" target="_blank">📍 鼓山輪渡站</a></div>
-    <div class="tli fd"><div class="tt">11:30–14:30</div><div class="tn">🦑 旗津老街午餐 + 海岸公園</div><div class="td">炸蚵仔、旗魚黑輪、貝殼館、海岸公園夕陽角度極佳。<span class="cp o">NT$200–350</span></div></div>
-    <div class="tli tr"><div class="tt">14:30</div><div class="tn">⛴ 輪渡返鼓山 → Uber 到 KMC</div><div class="td">渡輪 NT$15，Uber 至 KMC 約 <span class="cp t">NT$150</span>，10分鐘。</div></div>
-    <div class="tli sp"><div class="tt">15:00–17:30</div><div class="tn">🎵 高雄流行音樂中心（KMC）</div><div class="td">室外廣場免費參觀，標誌性「超級海洋舞台」海景建築，拍照絕佳。靠近 Pier-2 駁二藝術特區，可順路走走。</div><a class="ml" href="https://maps.google.com/?q=高雄流行音樂中心" target="_blank">📍 地圖</a></div>
-    <div class="tli sp"><div class="tt">18:30–21:00</div><div class="tn">🌙 六合夜市（每日開放）</div><div class="td">捷運中央公園站步行5分。木瓜牛奶、海鮮粥、擔仔麵、生炒花枝。<span class="cp o">NT$250–400</span></div><a class="ml" href="https://maps.google.com/?q=六合夜市高雄" target="_blank">📍 地圖</a></div>
+    <div class="tli"><div class="tt">19:01</div><div class="tn">🏨 抵左營 · Uber 入住高雄飯店</div><div class="td">Uber 約 NT$150。整理行李，今晚下午才到，可以喘口氣！</div></div>
+    <div class="tli fd"><div class="tt">19:30</div><div class="tn">🍜 晚餐 · 六合夜市</div><div class="td">捷運中央公園站步行5分。木瓜牛奶、海鮮粥、擔仔麵、生炒花枝，在地必吃。<span class="cp o">NT$250–400</span></div><a class="ml" href="https://maps.google.com/?q=六合夜市高雄" target="_blank">📍 地圖</a></div>
   </div>
 </div>
+
 <!-- ══ D4 ══ -->
 <div class="pg" id="d4">
   <div class="dh clq">
     <div class="dh-t">D4 · 台灣好行登船 · 小琉球 · SUP · 星空</div>
-    <div class="dh-d">2026年10月13日（二）✅ 台灣好行平日正常班次</div>
-    <div class="dh-tags"><span class="dtag">高雄→小琉球</span><span class="dtag g">好行正常</span><span class="dtag">🐢 海龜島</span></div>
+    <div class="dh-d">2026年10月13日（二）✅ 台灣好行每日正常班次</div>
+    <div class="dh-tags"><span class="dtag">高雄→小琉球</span><span class="dtag g">好行每日行駛</span><span class="dtag">🐢 海龜島</span></div>
   </div>
   <div class="pcard" data-src="https://res.klook.com/image/upload/w_500,h_313,c_fill,q_85/activities/zvxofta5rx32ghfz7kvp.jpg" data-emoji="🏝️" data-label="小琉球・珊瑚礁島嶼"></div>
   <div class="tl">
     <div class="tli fd"><div class="tt">07:30</div><div class="tn">🥣 早餐</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
-    <div class="tli tr"><div class="tt">08:30</div><div class="tn">🚌 台灣好行 9127-D 左營→東港碼頭<span class="cp t">NT$107</span></div>
-      <details><summary>🚌 9127-D 班次 10/13（二）<span class="arr">▼</span></summary><div class="scb">
-        <div class="scr"><div class="sd">08:05</div><div class="sa">→ 約08:55</div><div class="si">第一班</div><div class="sp2">NT$107</div></div>
-        <div class="scr"><div class="sd">09:05</div><div class="sa">→ 約09:55</div><div class="si">推薦班次</div><div class="sp2">NT$107</div></div>
-        <div class="scr"><div class="sd">10:05</div><div class="sa">→ 約10:55</div><div class="si">第三班</div><div class="sp2">NT$107</div></div>
-        <div class="scr"><div class="sd">查詢</div><div class="si">taiwantrip.com.tw 確認最新</div></div>
+    <div class="tli tr"><div class="tt">08:30</div><div class="tn">🚌 台灣好行 9127-D 左營→東琉線碼頭（東港）<span class="cp t">NT$107</span></div><div class="td">左營高鐵站 2 號出口 台灣好行售票櫃台購票劃位，<b>持悠遊卡需先在此登記車次</b>。</div>
+      <details><summary>🚌 9127-D 班次（每日）<span class="arr">▼</span></summary><div class="scb">
+        <div class="scr"><div class="sd">08:00</div><div class="sa">→ 08:50</div><div class="si">第一班</div><div class="sp2">NT$107 IC</div></div>
+        <div class="scr"><div class="sd">08:30</div><div class="sa">→ 09:20</div><div class="si">推薦班次</div><div class="sp2">NT$107 IC</div></div>
+        <div class="scr"><div class="sd">09:00</div><div class="sa">→ 09:50</div><div class="si">備選</div><div class="sp2">NT$107 IC</div></div>
+        <div class="scr"><div class="sd">09:30</div><div class="sa">→ 10:30</div><div class="si">備選（繞鹽琉線）</div><div class="sp2">NT$107 IC</div></div>
+        <div class="scr"><div class="sd">查詢</div><div class="si">taiwantrip.com.tw → 大鵬灣琉球線時刻表</div></div>
       </div></details>
     </div>
-    <div class="tli lq"><div class="tt">10:00</div><div class="tn">⛴ 東港白沙尾碼頭 · 購票（需護照）<span class="cp t">NT$450來回</span></div>
+    <div class="tli lq"><div class="tt">09:20–10:00</div><div class="tn">⛴ 東港白沙尾碼頭 · 購票（需護照）<span class="cp t">NT$460來回</span></div>
       <details><summary>⛴ 渡輪班次（點我展開）<span class="arr">▼</span></summary><div class="scb">
         <div class="scr"><div class="sd">每30分</div><div class="si">各家輪流，約07:30–17:30</div><div class="sp2">NT$230單</div></div>
-        <div class="scr"><div class="sd">推薦</div><div class="si">11:00 班（配合9127-D抵達時間）</div></div>
+        <div class="scr"><div class="sd">推薦</div><div class="si">配合 9127-D 抵達時間搭下一班</div></div>
         <div class="scr"><div class="sd sw">末班</div><div class="si sw">約17:00–17:30，ferry.tw 查詢</div></div>
       </div></details>
     </div>
-    <div class="tli lq"><div class="tt">11:30</div><div class="tn">🏝️ 抵小琉球 · 入住 · 租電動機車</div><div class="td">碼頭步行5分至民宿，立即租機車 <span class="cp">NT$350/天</span>。<b>⭐ 立即預約 D5 早上07:00 潛水！</b></div></div>
+    <div class="tli lq"><div class="tt">10:30</div><div class="tn">🏝️ 抵小琉球 · 入住 · 租電動機車</div><div class="td">碼頭步行5分至民宿，立即租機車 <span class="cp">NT$350/天</span>。<b>⭐ 立即預約明天早上 07:00 潛水！</b></div></div>
     <div class="tli fd"><div class="tt">12:00</div><div class="tn">🦞 午餐：港口海鮮食堂</div><div class="td"><span class="cp o">NT$180–300</span></div></div>
     <div class="tli lq"><div class="tt">13:30–16:00</div><div class="tn">🏄 SUP 立式划槳</div><div class="td">下午風浪小，適合初學，含教學約1.5–2小時。<span class="cp">NT$500–800/人</span></div></div>
     <div class="tli lq"><div class="tt">16:00–18:00</div><div class="tn">🛵 騎車探島 · 花瓶石 · 蛤板灣</div><div class="td">電動機車環島約20–30分鐘，踩點明天打卡景點。</div><a class="ml" href="https://maps.google.com/?q=花瓶石小琉球" target="_blank">📍 花瓶石</a></div>
     <div class="tli fd"><div class="tt">18:30</div><div class="tn">🍗 晚餐</div><div class="td"><span class="cp o">NT$200–350</span></div></div>
-    <div class="tli wn"><div class="tt">20:00</div><div class="tn">🌟 星空觀察 / 夜間潮間帶導覽</div><div class="td">小琉球光害少，星空清晰。可向民宿詢問夜間生態導覽。<span class="cp">NT$200–350</span>。</div></div>
+    <div class="tli wn"><div class="tt">20:00</div><div class="tn">🌟 星空觀察 / 夜間潮間帶導覽</div><div class="td">小琉球光害少，星空清晰。可向民宿詢問夜間生態導覽。<span class="cp">NT$200–350</span></div></div>
   </div>
 </div>
+
 <!-- ══ D5 ══ -->
 <div class="pg" id="d5">
   <div class="dh clq">
@@ -412,38 +412,44 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli sp"><div class="tt">19:30–21:30</div><div class="tn">💕 愛河河畔散步 + 晚餐</div><div class="td">駁二步行約15分可到愛河。河畔有咖啡廳、燈光倒影，鹽埕埔在地小吃。<span class="cp o">NT$250–400</span></div><a class="ml" href="https://maps.google.com/?q=愛河高雄" target="_blank">📍 愛河地圖</a></div>
   </div>
 </div>
+
 <!-- ══ D6 ══ -->
 <div class="pg" id="d6">
   <div class="dh csp">
-    <div class="dh-t">D6 · 佛光山 · 夢時代 · 愛河 → 夜宿高雄</div>
-    <div class="dh-d">2026年10月15日（四）✅ 佛光山開放 · 夜宿高雄（明早再北上）</div>
-    <div class="dh-tags"><span class="dtag">高雄全日</span><span class="dtag g">🏯 佛光山</span><span class="dtag">🛍 夢時代</span></div>
+    <div class="dh-t">D6 · 佛光山 · 夢時代 · 瑞豐夜市 🎉</div>
+    <div class="dh-d">2026年10月15日（四）✅ 佛陀紀念館週四開放至 19:00</div>
+    <div class="dh-tags"><span class="dtag">高雄全日</span><span class="dtag g">🏯 佛光山</span><span class="dtag">🎉 瑞豐夜市</span></div>
   </div>
-  <div class="pcard" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Fo_Guang_Shan_Buddha_Museum_%E4%BD%9B%E5%85%89%E5%B1%B1%E4%BD%9B%E9%99%80%E7%B4%80%E5%BF%B5%E9%A4%A8_.jpg/960px-Fo_Guang_Shan_Buddha_Museum_%E4%BD%9B%E5%85%89%E5%B1%B1%E4%BD%9B%E9%99%80%E7%B4%80%E5%BF%B5%E9%A4%A8_.jpg" data-emoji="🏯" data-label="佛光山佛陀紀念館（免費）"></div>
-  <div class="alo"><div class="al al-g">🎉 D6 佛光山後不急著北上，留在高雄夜宿，明天 D7 早上才搭高鐵。愛河可從夢時代 Uber 過去，放鬆！</div></div>
+  <div class="pcard" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Fo_Guang_Shan_Buddha_Museum_%E4%BD%9B%E5%85%89%E5%B1%B1%E4%BD%9B%E9%99%80%E7%B4%80%E5%BF%B5%E9%A4%A8_.jpg/960px-Fo_Guang_Shan_Buddha_Museum_%E4%BD%9B%E5%85%89%E5%B1%B1%E4%BD%9B%E9%99%80%E7%B4%80%E5%BF%B5%E9%A4%A8_.jpg" data-emoji="🏯" data-label="佛光山佛陀紀念館（免費入場）"></div>
+  <div class="alo">
+    <div class="al al-g">🎉 <b>週四佛陀紀念館開放至 19:00</b>，今天時間最充裕！佛光山→夢時代→瑞豐夜市完美串聯。</div>
+    <div class="al al-r">⚠️ <b>佛陀紀念館週二休館</b>（今天是週四，沒問題！）E02 巴士週二不停佛陀紀念館站，今天正常。</div>
+  </div>
   <div class="tl">
     <div class="tli fd"><div class="tt">08:00</div><div class="tn">🥣 早餐</div><div class="td"><span class="cp o">NT$80–150</span></div></div>
-    <div class="tli tr"><div class="tt">08:30</div><div class="tn">🚌 前往佛光山</div>
-      <details><summary>🚌 路線（點我展開）<span class="arr">▼</span></summary><div class="scb">
-        <div class="scr"><div class="sd">推薦</div><div class="si">高雄火車站前→高雄客運 150/151 路→佛光山</div><div class="sp2">NT$80</div></div>
-        <div class="scr"><div class="sd">08:30</div><div class="sa">→ 約09:20</div><div class="si">150 路</div><div class="sp2">NT$80</div></div>
-        <div class="scr"><div class="sd">09:00</div><div class="sa">→ 約09:50</div><div class="si">151 路</div><div class="sp2">NT$80</div></div>
-        <div class="scr"><div class="sd">備選</div><div class="si">捷運大東站→台灣好行大樹祈福線</div><div class="sp2">NT$50</div></div>
+    <div class="tli tr"><div class="tt">08:40</div><div class="tn">🚌 E02 哈佛快線 · 左營高鐵站→佛光山</div><div class="td">左營高鐵站 2 號出口，公車接駁站<b>第 3 站牌</b>候車。行程約 37 分鐘。<span class="cp t">NT$80</span></div>
+      <details><summary>🚌 E02 班次（點我展開）<span class="arr">▼</span></summary><div class="scb">
+        <div class="scr"><div class="sd">08:40</div><div class="sa">→ 09:17</div><div class="si">推薦去程</div><div class="sp2">NT$80</div></div>
+        <div class="scr"><div class="sd">09:20</div><div class="sa">→ 09:57</div><div class="si">備選</div><div class="sp2">NT$80</div></div>
+        <div class="scr"><div class="sd">回程推薦</div><div class="si">佛光山 14:20 發 → 左營 14:54</div></div>
+        <div class="scr"><div class="sd">回程備選</div><div class="si">佛光山 15:00 發 → 左營 15:34</div></div>
+        <div class="scr"><div class="sd">查詢</div><div class="si">ksbus.com.tw — E02 哈佛快線</div></div>
       </div></details>
     </div>
-    <div class="tli sp"><div class="tt">09:30–13:00</div><div class="tn">🏯 佛光山 + 佛陀紀念館</div><div class="td">台灣最大佛教道場，停留3–3.5小時。免費中文導覽09:30/10:30場次現場報名。週一公休，週四09:00–19:00開放。<span class="cp f">免費入場</span></div><a class="ml" href="https://fgsbmc.org.tw" target="_blank">🌐 官網</a> <a class="ml" href="https://maps.google.com/?q=佛光山佛陀紀念館高雄" target="_blank">📍 地圖</a></div>
-    <div class="tli fd"><div class="tt">13:00</div><div class="tn">🌿 佛光山素食午餐</div><div class="td">館內平價蔬食。<span class="cp o">NT$120–200</span></div></div>
-    <div class="tli tr"><div class="tt">14:00</div><div class="tn">🚗 Uber 佛光山→夢時代</div><div class="td">約45分鐘。<span class="cp t">NT$400</span></div></div>
+    <div class="tli sp"><div class="tt">09:17–13:00</div><div class="tn">🏯 佛光山 + 佛陀紀念館</div><div class="td">台灣最大佛教道場，免費入場。免費中文導覽 09:30 / 10:30 場次現場報名。亞洲最高青銅坐佛（108公尺）壯觀震撼。<span class="cp f">免費入場</span></div><a class="ml" href="https://fgsbmc.org.tw" target="_blank">🌐 官網</a> <a class="ml" href="https://maps.google.com/?q=佛光山佛陀紀念館高雄" target="_blank">📍 地圖</a></div>
+    <div class="tli fd"><div class="tt">13:00</div><div class="tn">🌿 佛光山素食午餐</div><div class="td">館內平價蔬食，親切環境。<span class="cp o">NT$120–200</span></div></div>
+    <div class="tli tr"><div class="tt">14:20</div><div class="tn">🚌 E02 返回左營</div><div class="td">搭 14:20 班次，約 14:54 抵左營，再 Uber 到夢時代。<span class="cp t">NT$80 + Uber NT$250</span></div></div>
     <div class="photo-row">
       <div class="pcard sm" data-src="https://res.klook.com/image/upload/fl_lossy.progressive,w_1200,h_630,c_fill,q_85/dream-mal_rbk1rg.jpg" data-emoji="🛍" data-label="夢時代購物中心"></div>
-      <div class="pcard sm" data-src="https://khh.travel/image/18459/1024x768" data-emoji="💕" data-label="愛河夜景"></div>
+      <div class="pcard sm" data-src="" data-emoji="🎡" data-label="夢時代屋頂摩天輪日落視角"></div>
     </div>
-    <div class="tli sp"><div class="tt">14:30–17:30</div><div class="tn">🛍 夢時代 Dream Mall + 摩天輪</div><div class="td">高雄最大購物中心，屋頂摩天輪日落視角絕佳。<span class="cp">摩天輪 NT$150</span></div><a class="ml" href="https://maps.google.com/?q=夢時代高雄" target="_blank">📍 地圖</a></div>
-    <div class="tli tr"><div class="tt">17:30</div><div class="tn">🚗 Uber 夢時代→愛河</div><div class="td">約20分鐘。<span class="cp t">NT$200</span></div></div>
-    <div class="tli sp"><div class="tt">18:00–21:00</div><div class="tn">💕 愛河河畔散步 + 晚餐</div><div class="td">高雄最浪漫的夜景河畔，燈光倒影、咖啡廳林立，鹽埕埔在地小吃。<span class="cp o">NT$250–400</span></div><a class="ml" href="https://maps.google.com/?q=愛河高雄" target="_blank">📍 地圖</a></div>
+    <div class="tli sp"><div class="tt">15:30–17:30</div><div class="tn">🛍 夢時代 Dream Mall + 摩天輪</div><div class="td">高雄最大購物中心，屋頂摩天輪日落視角絕佳。<span class="cp">摩天輪 NT$150</span></div><a class="ml" href="https://maps.google.com/?q=夢時代高雄" target="_blank">📍 地圖</a></div>
+    <div class="tli tr"><div class="tt">17:30</div><div class="tn">🚗 Uber 夢時代→瑞豐夜市</div><div class="td">約 15 分鐘。<span class="cp t">NT$150</span></div></div>
+    <div class="tli sp"><div class="tt">18:00–21:00</div><div class="tn">🎉 瑞豐夜市（週四正常開放）</div><div class="td">高雄最熱鬧夜市，炸物、海鮮、滷味、珍珠奶茶一次搞定。步行即可到高鐵左營站。<span class="cp o">NT$250–400</span></div><a class="ml" href="https://maps.google.com/?q=瑞豐夜市高雄" target="_blank">📍 瑞豐夜市</a></div>
     <div class="tli"><div class="tt">21:00</div><div class="tn">🏨 Uber 返高雄飯店</div><div class="td">夜宿高雄，明天 D7 早上才搭高鐵北上，不用趕！</div></div>
   </div>
 </div>
+
 <!-- ══ D7 ══ -->
 <div class="pg" id="d7">
   <div class="dh ckh" style="background:linear-gradient(135deg,#10205A,#2940A0)">
@@ -470,6 +476,7 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <div class="tli"><div class="tt">晚上</div><div class="tn">🧳 整理行李 · 早點睡</div><div class="td">明天 06:00 就要出發！確認護照、電子機票、行李重量。</div></div>
   </div>
 </div>
+
 <!-- ══ FLY ══ -->
 <div class="pg" id="fly">
   <div class="dh cty">
@@ -488,9 +495,10 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
       </div></details>
     </div>
     <div class="tli"><div class="tt">06:30</div><div class="tn">🛂 機場 · 辦理報到</div><div class="td">國際線建議提前2.5–3小時，完成報到、托運、安檢、出境。</div></div>
-    <div class="tli sp"><div class="tt">09:00</div><div class="tn">✈ 班機起飛 · 返回馬來西亞！</div><div class="td">8天台灣之旅圓滿結束 🎉 帶著花瓶石的珊瑚礁、佛光山的靜謐、夢時代的摩天輪夜景、愛河的燈光倒影啟程回家。</div></div>
+    <div class="tli sp"><div class="tt">09:00</div><div class="tn">✈ 班機起飛 · 返回馬來西亞！</div><div class="td">8天台灣之旅圓滿結束 🎉 帶著日月潭的晨霧、九族的高空纜車、小琉球的海龜、佛光山的靜謐、瑞豐夜市的炸物香氣啟程回家。</div></div>
   </div>
 </div>
+
 <!-- ══ TRANSPORT ══ -->
 <div class="pg" id="tr">
   <div class="sl">🚆 全程交通費用</div>
@@ -499,21 +507,21 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
     <table class="tt2">
       <tr><th>日期</th><th>路段</th><th>工具</th><th>費用/人</th></tr>
       <tr><td>10/10</td><td>桃園機場→台中火車站</td><td>國光/統聯客運</td><td class="tc2">NT$260–300</td></tr>
-      <tr><td>10/12</td><td>台中→新烏日（台鐵）</td><td>台鐵區間車</td><td class="tc2">NT$25</td></tr>
-      <tr><td>10/12</td><td>台中高鐵站→左營</td><td>台灣高鐵</td><td class="tc2">NT$790（早鳥NT$593）</td></tr>
-      <tr><td>10/12</td><td>高雄捷運各段</td><td>高雄捷運</td><td class="tc2">NT$80–120</td></tr>
-      <tr><td>10/12</td><td>鼓山↔旗津輪渡（來回）</td><td>鼓山輪渡</td><td class="tc2">NT$30</td></tr>
-      <tr><td>10/12</td><td>Uber 旗津→KMC→六合</td><td>Uber</td><td class="tc2">NT$250–300</td></tr>
-      <tr><td>10/13</td><td>左營→東港碼頭</td><td>台灣好行9127-D</td><td class="tc2">NT$107</td></tr>
-      <tr><td>10/13</td><td>東港↔小琉球（來回）</td><td>東琉線渡輪</td><td class="tc2">NT$450</td></tr>
+      <tr><td>10/11</td><td>台中干城站→日月潭水社</td><td>6670台灣好行（假日）</td><td class="tc2">NT$168 IC / NT$193</td></tr>
+      <tr><td>10/11</td><td>日月潭遊湖船（日票）</td><td>日月潭遊湖船</td><td class="tc2">NT$300</td></tr>
+      <tr><td>10/12</td><td>日月潭纜車（來回）</td><td>日月潭纜車</td><td class="tc2">NT$300</td></tr>
+      <tr><td>10/12</td><td>日月潭→高鐵台中站</td><td>6670台灣好行（平日回程）</td><td class="tc2">NT$168 IC / NT$193</td></tr>
+      <tr><td>10/12</td><td>高鐵台中站→左營</td><td>台灣高鐵</td><td class="tc2">NT$790（早鳥NT$593）</td></tr>
+      <tr><td>10/13</td><td>左營→東琉線碼頭（東港）</td><td>台灣好行9127-D</td><td class="tc2">NT$107 IC</td></tr>
+      <tr><td>10/13</td><td>東港↔小琉球（來回）</td><td>東琉線渡輪</td><td class="tc2">NT$460</td></tr>
       <tr><td>10/13–14</td><td>小琉球島上（1.5天）</td><td>電動機車</td><td class="tc2">NT$500</td></tr>
-      <tr><td>10/14</td><td>東港→高雄</td><td>好行返程/Uber</td><td class="tc2">NT$107–450</td></tr>
-      <tr><td>10/15</td><td>高雄↔佛光山（來回）</td><td>公車150/151</td><td class="tc2">NT$160</td></tr>
-      <tr><td>10/15</td><td>佛光山→夢時代→愛河</td><td>Uber × 2</td><td class="tc2">NT$600</td></tr>
+      <tr><td>10/14</td><td>東港→高雄左營</td><td>好行返程/Uber</td><td class="tc2">NT$107–450</td></tr>
+      <tr><td>10/15</td><td>左營↔佛光山（E02 來回）</td><td>E02哈佛快線</td><td class="tc2">NT$160</td></tr>
+      <tr><td>10/15</td><td>佛光山→夢時代→瑞豐夜市</td><td>Uber × 2</td><td class="tc2">NT$400</td></tr>
       <tr><td>10/16</td><td>左營→桃園（高鐵）</td><td>台灣高鐵</td><td class="tc2">NT$1,330（早鳥NT$998）</td></tr>
       <tr><td>10/16</td><td>桃園→Xpark→機場飯店</td><td>Uber</td><td class="tc2">NT$400</td></tr>
       <tr><td>10/17</td><td>A18→桃園機場</td><td>機場捷運</td><td class="tc2">NT$25</td></tr>
-      <tr class="tot"><td colspan="3"><b>交通合計（含早鳥折扣）</b></td><td class="tc2"><b>NT$4,500–5,200</b></td></tr>
+      <tr class="tot"><td colspan="3"><b>交通合計（含早鳥折扣）</b></td><td class="tc2"><b>NT$4,700–5,500</b></td></tr>
     </table>
     </div>
   </div>
@@ -521,39 +529,43 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   <div class="cb" style="padding:0 12px 10px">
     <div class="ql">
       <a href="https://www.thsrc.com.tw" target="_blank"><span class="ql-icon">🚄</span><div><div>台灣高鐵</div><div class="ql-r">thsrc.com.tw — 提前28天訂早鳥75折</div></div></a>
+      <a href="https://www.taiwantrip.com.tw/Frontend/Bustime/TimeTable/R0005" target="_blank"><span class="ql-icon">🚌</span><div><div>台灣好行日月潭線</div><div class="ql-r">6670 干城站↔日月潭 平日/假日時刻表</div></div></a>
+      <a href="https://www.taiwantrip.com.tw/Frontend/Bustime/TimeTable/R0065" target="_blank"><span class="ql-icon">🚌</span><div><div>台灣好行大鵬灣琉球線</div><div class="ql-r">9127-D 左營→東港 每日班次</div></div></a>
+      <a href="https://ksbus.com.tw/bus_info.asp?id=105" target="_blank"><span class="ql-icon">🚌</span><div><div>E02 哈佛快線（佛光山）</div><div class="ql-r">左營高鐵站→佛陀紀念館 時刻表</div></div></a>
       <a href="https://ferry.tw/time-table/liuqiu" target="_blank"><span class="ql-icon">⛴</span><div><div>飛魚船票網</div><div class="ql-r">ferry.tw — 東琉線班次即時查詢</div></div></a>
-      <a href="https://www.taiwantrip.com.tw" target="_blank"><span class="ql-icon">🚌</span><div><div>台灣好行官網</div><div class="ql-r">taiwantrip.com.tw — 9127-D 班次</div></div></a>
       <a href="https://www.tymetro.com.tw" target="_blank"><span class="ql-icon">🚇</span><div><div>桃園機場捷運</div><div class="ql-r">tymetro.com.tw — A18→機場班次</div></div></a>
       <a href="https://www.kingbus.com.tw" target="_blank"><span class="ql-icon">🚌</span><div><div>國光客運</div><div class="ql-r">kingbus.com.tw — 機場→台中末班查詢</div></div></a>
-      <a href="https://www.krtco.com.tw" target="_blank"><span class="ql-icon">🚇</span><div><div>高雄捷運</div><div class="ql-r">krtco.com.tw — 路線圖票價</div></div></a>
     </div>
   </div>
 </div>
+
 <!-- ══ CHECKLIST ══ -->
 <div class="pg" id="cl">
   <div class="sl">☑ 出發前確認清單</div>
   <div class="card">
-    <div class="cl-pg"><span id="cl-txt">0 / 11 完成</span><div class="pb"><div class="pbf" id="pbf" style="width:0%"></div></div><button onclick="resetCL()" style="font-size:12px;background:none;border:1px solid var(--bd);padding:3px 8px;border-radius:5px;cursor:pointer;color:var(--tm)">重置</button></div>
+    <div class="cl-pg"><span id="cl-txt">0 / 13 完成</span><div class="pb"><div class="pbf" id="pbf" style="width:0%"></div></div><button onclick="resetCL()" style="font-size:12px;background:none;border:1px solid var(--bd);padding:3px 8px;border-radius:5px;cursor:pointer;color:var(--tm)">重置</button></div>
     <div id="cl-list"></div>
   </div>
 </div>
+
 <!-- ══ BUDGET ══ -->
 <div class="pg" id="bud">
   <div class="bh">
-    <div class="bt">NT$14,000–23,000</div>
-    <div class="bl">每人預算（2人同行、共住一房）約 MYR 1,960–3,220</div>
+    <div class="bt">NT$15,500–25,000</div>
+    <div class="bl">每人預算（2人同行、共住一房）約 MYR 2,170–3,500</div>
   </div>
   <div class="sl">💰 費用分類</div>
   <div class="card">
-    <div class="br"><div class="bl2">🚆 交通（含高鐵早鳥折扣）</div><div class="bv">NT$4,500–5,200</div></div>
-    <div class="br"><div class="bl2">🏨 住宿（7晚，2人分攤半房）</div><div class="bv">NT$4,200–9,400</div></div>
-    <div class="br"><div class="bl2">🤿 活動（SUP+潛水+門票等）</div><div class="bv">NT$1,500–3,300</div></div>
+    <div class="br"><div class="bl2">🚆 交通（含高鐵早鳥折扣）</div><div class="bv">NT$4,700–5,500</div></div>
+    <div class="br"><div class="bl2">🏨 住宿（7晚，2人分攤半房）</div><div class="bv">NT$5,100–10,900</div></div>
+    <div class="br"><div class="bl2">🤿 活動（SUP+潛水+纜車+門票等）</div><div class="bv">NT$2,000–4,000</div></div>
     <div class="br"><div class="bl2">🍜 餐飲（8天）</div><div class="bv">NT$3,200–4,500</div></div>
     <div class="br"><div class="bl2">📱 SIM+悠遊卡+雜費</div><div class="bv">NT$700–1,200</div></div>
   </div>
   <div class="sl">🏨 住宿分拆（7晚）</div>
   <div class="card">
-    <div class="br"><div class="bl2">台中（D1–D2，2晚）</div><div class="bv">NT$900–1,800/晚</div></div>
+    <div class="br"><div class="bl2">台中（D1，1晚）</div><div class="bv">NT$900–1,800/晚</div></div>
+    <div class="br"><div class="bl2">日月潭纜車附近（D2，1晚）⭐</div><div class="bv">NT$1,500–3,000/晚</div></div>
     <div class="br"><div class="bl2">高雄（D3+D5+D6，3晚）</div><div class="bv">NT$1,200–2,000/晚</div></div>
     <div class="br"><div class="bl2">小琉球（D4，1晚）</div><div class="bv">NT$1,500–2,800/晚</div></div>
     <div class="br"><div class="bl2">桃園機場附近（D7，1晚）</div><div class="bv">NT$1,800–4,000/晚</div></div>
@@ -562,30 +574,36 @@ details.hsr summary{background:#EBF0FF;border-color:#B0C4FF;color:#294098}
   <div class="card cb">
     <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
       <div>✅ 高鐵早鳥（出發前28天）可省 <b>NT$530/人</b></div>
+      <div>✅ 6670 刷悠遊卡比現金省 <b>NT$25/趟</b></div>
       <div>✅ 2人 Uber 分攤可省約 <b>NT$600/人</b></div>
       <div>✅ 選浮潛（非體驗潛水）可省 <b>NT$1,500/人</b></div>
-      <div>✅ 小琉球住宿提早2個月訂可省 <b>NT$500–1,000</b></div>
+      <div>✅ 日月潭+小琉球住宿提早2個月訂可省 <b>NT$1,000–2,000</b></div>
     </div>
   </div>
 </div>
 </main>
+
 <script>
 const CLS=[
   {id:'c1',t:'小琉球民宿（D4，10/13一晚）',s:'10月旺季，至少2個月前訂！Agoda / Booking.com 或直接搜尋電話。',tag:'最優先'},
-  {id:'c2',t:'高鐵早鳥票 × 2（10/12 台中→左營 / 10/16 左營→桃園）',s:'提前28天在thsrc.com.tw購75折票，額度有限需搶。',tag:'28天前',tc:'b'},
-  {id:'c3',t:'Xpark 水族館門票（D7，10/16）',s:'xpark.com.tw 官網或 KKday 提前購票，假日可能排隊。',tag:'提早訂',tc:'b'},
-  {id:'c4',t:'桃園機場附近飯店（D7，1晚）',s:'諾富特桃園機場、Tmark Hotel 等最便利，需提早訂。',tag:'提早訂',tc:'b'},
-  {id:'c5',t:'小琉球渡輪來回票（KKday / Klook）',s:'旺季現場排隊時間長，外籍旅客需護照，建議線上預訂。ferry.tw 查班次。',tag:'1週前',tc:'b'},
-  {id:'c6',t:'確認機場客運末班（10/10 國慶日）',s:'kingbus.com.tw 確認21:30後班次，連假可能加班車。',tag:'出發前'},
-  {id:'c7',t:'台灣好行9127-D 班次確認（10/13 週二）',s:'taiwantrip.com.tw 查週二班次，雖然正常但仍建議確認。',tag:'出發前',tc:'ok'},
-  {id:'c8',t:'D4 抵島當天：立即預約 D5 07:00 潛水',s:'10月旺季潛水業者可能額滿，抵島後立即向民宿或碼頭業者確認。',tag:'到島當天'},
-  {id:'c9',t:'護照有效期 6 個月以上（每人）',s:'入境台灣＋小琉球登船實名制均需護照正本，隨身攜帶。',tag:'檢查',tc:'ok'},
-  {id:'c10',t:'暈船藥準備',s:'10月東北季風，東港↔小琉球30分鐘有浪，開船前30分鐘服用。',tag:'行李',tc:'ok'},
-  {id:'c11',t:'悠遊卡 + 儲值 NT$1,000（抵台第一天）',s:'機場入境大廳有售，適用捷運、台鐵、公車、台灣好行。',tag:'到台當天',tc:'ok'},
+  {id:'c2',t:'日月潭民宿（靠纜車站，D2，10/11一晚）',s:'伊達邵附近、步行至纜車站5分鐘內。10月旺季需提前2個月訂！',tag:'最優先'},
+  {id:'c3',t:'高鐵早鳥票 × 2（10/12 台中→左營 / 10/16 左營→桃園）',s:'提前28天在thsrc.com.tw購75折票，額度有限需搶。',tag:'28天前',tc:'b'},
+  {id:'c4',t:'Xpark 水族館門票（D7，10/16）',s:'xpark.com.tw 官網或 KKday 提前購票，假日可能排隊。',tag:'提早訂',tc:'b'},
+  {id:'c5',t:'桃園機場附近飯店（D7，1晚）',s:'諾富特桃園機場、Tmark Hotel 等最便利，需提早訂。',tag:'提早訂',tc:'b'},
+  {id:'c6',t:'小琉球渡輪來回票（KKday / Klook）',s:'旺季現場排隊時間長，外籍旅客需護照，建議線上預訂。ferry.tw 查班次。',tag:'1週前',tc:'b'},
+  {id:'c7',t:'確認 6670 假日班次（D2，10/11 週日）',s:'taiwantrip.com.tw 確認假日時刻表，干城站出發，務必在首發站上車。',tag:'出發前',tc:'ok'},
+  {id:'c8',t:'確認機場客運末班（10/10 國慶日）',s:'kingbus.com.tw 確認21:30後班次，連假可能加班車。',tag:'出發前'},
+  {id:'c9',t:'台灣好行9127-D 班次確認（10/13 週二）',s:'taiwantrip.com.tw 確認，左營高鐵站 2 號出口售票櫃台先購票。',tag:'出發前',tc:'ok'},
+  {id:'c10',t:'D4 抵島當天：立即預約 D5 07:00 潛水',s:'10月旺季潛水業者可能額滿，抵島後立即向民宿或碼頭業者確認。',tag:'到島當天'},
+  {id:'c11',t:'護照有效期 6 個月以上（每人）',s:'入境台灣＋小琉球登船實名制均需護照正本，隨身攜帶。',tag:'檢查',tc:'ok'},
+  {id:'c12',t:'暈船藥準備',s:'10月東北季風，東港↔小琉球30分鐘有浪，開船前30分鐘服用。',tag:'行李',tc:'ok'},
+  {id:'c13',t:'悠遊卡 + 儲值 NT$1,000（抵台第一天）',s:'機場入境大廳有售，適用捷運、台鐵、公車、台灣好行 6670 均可刷。',tag:'到台當天',tc:'ok'},
 ];
+
 let S={tab:'ov',dark:false,checks:{}};
 try{const d=JSON.parse(localStorage.getItem('tw2026')||'{}');if(d.dark!==undefined)S.dark=d.dark;if(d.checks)S.checks=d.checks;}catch(e){}
 function save(){try{localStorage.setItem('tw2026',JSON.stringify({dark:S.dark,checks:S.checks}));}catch(e){}}
+
 function go(id){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
@@ -594,6 +612,7 @@ function go(id){
   document.getElementById('main').scrollTo(0,0);
   S.tab=id;
 }
+
 function toggleDark(){
   S.dark=!S.dark;
   document.documentElement.setAttribute('data-theme',S.dark?'dark':'light');
@@ -601,6 +620,7 @@ function toggleDark(){
   save();
 }
 if(S.dark){document.documentElement.setAttribute('data-theme','dark');document.getElementById('dbtn').textContent='☀️';}
+
 function updateCD(){
   const dep=new Date('2026-10-10T20:00:00+08:00');
   const diff=dep-new Date();
@@ -610,6 +630,7 @@ function updateCD(){
   else{el.textContent=Math.floor(diff/86400000);}
 }
 updateCD();setInterval(updateCD,60000);
+
 function renderCL(){
   const done=CLS.filter(c=>S.checks[c.id]).length;
   const pct=(done/CLS.length*100).toFixed(0);
@@ -628,6 +649,7 @@ function renderCL(){
 function toggleCL(id){S.checks[id]=!S.checks[id];save();renderCL();}
 function resetCL(){if(confirm('重置所有清單？')){S.checks={};save();renderCL();}}
 renderCL();
+
 function loadPhoto(card){
   const src=card.dataset.src;
   const emoji=card.dataset.emoji||'📍';
@@ -649,198 +671,125 @@ function loadPhoto(card){
 }
 document.querySelectorAll('.pcard').forEach(loadPhoto);
 
-/* ── Real map (Leaflet) with leader-line labels ── */
+/* ── Map ── */
 const PIN_INFO = {
   'airport': {title:'✈ 桃園機場', desc:'10/10 抵台起點 / 10/17 09:00 返馬終點', tab:'fly'},
-  '1': {title:'1 · 客運到台中', desc:'D1 客運抵台中夜宿', tab:'d1'},
-  '2': {title:'2 · 台中，科博館，審計新村', desc:'D2 科博館 · 審計新村 · 旱溪夜市', tab:'d2'},
-  '3': {title:'3 · 下高雄，旗津，流行音樂中心', desc:'D3 旗津 · KMC · 六合夜市', tab:'d3'},
-  '4': {title:'4 · 小琉球，SUP,星空', desc:'D4 登島 · SUP · 星空', tab:'d4'},
-  '5': {title:'5 · 潛水，回高雄，駁二，愛河', desc:'D5 潛水後返高雄 · 駁二 · 愛河', tab:'d5'},
-  '6': {title:'6 · 佛光山，夢時代，瑞豐', desc:'D6 佛光山 · 夢時代 · 愛河', tab:'d6'},
-  '7': {title:'7 · 上桃園，Xpark', desc:'D7 高鐵北上 · Xpark · 機場附近', tab:'d7'}
+  '1': {title:'1 · 客運到台中', desc:'D1 機場客運抵台中，夜宿火車站附近', tab:'d1'},
+  '2': {title:'2 · 日月潭 · 九族文化村', desc:'D2 遊湖·伊達邵 / D3 日出·九族纜車·高鐵南下', tab:'d2'},
+  '3': {title:'3 · 高雄 · 六合夜市', desc:'D3 高鐵抵達 · 六合夜市 / D5 駁二 · 愛河', tab:'d3'},
+  '4': {title:'4 · 小琉球 · SUP · 星空', desc:'D4 登島 · SUP · 星空觀察', tab:'d4'},
+  '5': {title:'5 · 小琉球↩高雄', desc:'D5 潛水後返高雄 · 駁二 · 愛河', tab:'d5'},
+  '6': {title:'6 · 佛光山 · 夢時代 · 瑞豐', desc:'D6 佛光山 · 夢時代 · 瑞豐夜市 🎉', tab:'d6'},
+  '7': {title:'7 · 桃園 · Xpark', desc:'D7 高鐵北上 · Xpark · 機場附近住宿', tab:'d7'}
 };
 
 function initTripMap() {
-  if (typeof L === 'undefined') {
-    console.warn('Leaflet not loaded');
-    return;
-  }
+  if (typeof L === 'undefined') { console.warn('Leaflet not loaded'); return; }
   const map = L.map('trip-map', {
-    zoomControl: false,
-    attributionControl: false,
-    dragging: true,
-    scrollWheelZoom: false,
-    doubleClickZoom: false
+    zoomControl: false, attributionControl: false,
+    dragging: true, scrollWheelZoom: false, doubleClickZoom: false
   }).setView([23.65, 120.85], 7);
 
-  // Clean light real map
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    maxZoom: 18,
-    subdomains: 'abcd'
+    maxZoom: 18, subdomains: 'abcd'
   }).addTo(map);
 
   map.setMaxBounds([[21.4, 118.8], [26.0, 122.8]]);
-  map.setMinZoom(6);
-  map.setMaxZoom(11);
+  map.setMinZoom(6); map.setMaxZoom(11);
 
-  // ========== Actual coordinates ==========
   const pts = {
     airport: [25.0797, 121.2342],
-    tc:      [24.1369, 120.6853],   // Taichung
-    kh:      [22.6273, 120.3014],   // Kaohsiung
-    liuqiu:  [22.3430, 120.3715],   // Xiaoliuqiu
-    fgs:     [22.7567, 120.4414],   // Fo Guang Shan
-    xpark:   [25.0136, 121.2138]    // Xpark
+    tc:      [24.1369, 120.6853],
+    sml:     [23.865,  120.917],   // 日月潭 Sun Moon Lake
+    kh:      [22.6273, 120.3014],
+    liuqiu:  [22.3430, 120.3715],
+    fgs:     [22.7567, 120.4414],
+    xpark:   [25.0136, 121.2138]
   };
 
-  // ========== Route lines (under everything) ==========
-  // Airport bus (brown dashed)
-  L.polyline([pts.airport, pts.tc], {
-    color: '#8B5A2B', weight: 3, dashArray: '8 5', opacity: 0.85, interactive: false
-  }).addTo(map);
-
+  // Airport bus → Taichung (brown dashed)
+  L.polyline([pts.airport, pts.tc], {color:'#8B5A2B', weight:3, dashArray:'8 5', opacity:0.85, interactive:false}).addTo(map);
+  // Taichung → Sun Moon Lake (teal dashed bus)
+  L.polyline([pts.tc, pts.sml], {color:'#1A6878', weight:3, dashArray:'6 4', opacity:0.85, interactive:false}).addTo(map);
+  // Sun Moon Lake → Taichung HSR (lighter return)
+  L.polyline([pts.sml, pts.tc], {color:'#1A6878', weight:2, dashArray:'3 5', opacity:0.55, interactive:false}).addTo(map);
   // HSR Taichung → Kaohsiung (thick blue)
-  L.polyline([pts.tc, pts.kh], {
-    color: '#1a4a8a', weight: 4.5, opacity: 0.9, interactive: false
-  }).addTo(map);
-
-  // Taiwan Trip + Ferry to Liuqiu (orange + cyan)
-  L.polyline([pts.kh, [22.48, 120.34], pts.liuqiu], {
-    color: '#E67E22', weight: 3, dashArray: '3 4', opacity: 0.85, interactive: false
-  }).addTo(map);
-  L.polyline([[22.40, 120.36], pts.liuqiu], {
-    color: '#00a8a8', weight: 3, dashArray: '6 3 1 3', opacity: 0.9, interactive: false
-  }).addTo(map);
-
+  L.polyline([pts.tc, pts.kh], {color:'#1a4a8a', weight:4.5, opacity:0.9, interactive:false}).addTo(map);
+  // Taiwan Trip + Ferry to Liuqiu (orange)
+  L.polyline([pts.kh, [22.48, 120.34], pts.liuqiu], {color:'#E67E22', weight:3, dashArray:'3 4', opacity:0.85, interactive:false}).addTo(map);
   // Ferry return Liuqiu → Kaohsiung
-  L.polyline([pts.liuqiu, [22.48, 120.33], pts.kh], {
-    color: '#00a8a8', weight: 2.5, dashArray: '6 3 1 3', opacity: 0.7, interactive: false
-  }).addTo(map);
+  L.polyline([pts.liuqiu, [22.48, 120.33], pts.kh], {color:'#00a8a8', weight:2.5, dashArray:'6 3 1 3', opacity:0.7, interactive:false}).addTo(map);
+  // E02 bus Kaohsiung → Fo Guang Shan (green dashed)
+  L.polyline([pts.kh, pts.fgs], {color:'#2E7D32', weight:2.5, dashArray:'4 4', opacity:0.8, interactive:false}).addTo(map);
+  // HSR Kaohsiung → Taoyuan (thick blue)
+  L.polyline([pts.fgs, pts.xpark], {color:'#1a4a8a', weight:4.5, opacity:0.9, interactive:false}).addTo(map);
+  // MRT Xpark → Airport (green dotted)
+  L.polyline([pts.xpark, pts.airport], {color:'#27AE60', weight:3, dashArray:'3 3', opacity:0.85, interactive:false}).addTo(map);
 
-  // Uber Kaohsiung → Fo Guang Shan (purple thin dashed)
-  L.polyline([pts.kh, pts.fgs], {
-    color: '#9B59B6', weight: 2.5, dashArray: '4 4', opacity: 0.8, interactive: false
-  }).addTo(map);
-
-  // HSR Fo Guang Shan / Kaohsiung → Taoyuan (thick blue)
-  L.polyline([pts.fgs, pts.xpark], {
-    color: '#1a4a8a', weight: 4.5, opacity: 0.9, interactive: false
-  }).addTo(map);
-
-  // Airport MRT Xpark → Airport (green dotted)
-  L.polyline([pts.xpark, pts.airport], {
-    color: '#27AE60', weight: 3, dashArray: '3 3', opacity: 0.85, interactive: false
-  }).addTo(map);
-
-  // ========== Helper: small actual location dot ==========
   function locDot(color) {
-    return L.divIcon({
-      className: '',
-      html: `<div style="width:10px;height:10px;background:${color};border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px ${color};"></div>`,
-      iconSize: [10, 10],
-      iconAnchor: [5, 5]
-    });
+    return L.divIcon({className:'',html:`<div style="width:10px;height:10px;background:${color};border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px ${color};"></div>`,iconSize:[10,10],iconAnchor:[5,5]});
   }
-
-  // ========== Helper: offset label (the numbered tag) ==========
   function labelIcon(text, bg) {
-    return L.divIcon({
-      className: '',
-      html: `<div style="background:${bg};color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.3);font-family:'Noto Sans TC',sans-serif;">${text}</div>`,
-      iconSize: [null, 22],
-      iconAnchor: [0, 11]   // left side of label
-    });
+    return L.divIcon({className:'',html:`<div style="background:${bg};color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.3);font-family:'Noto Sans TC',sans-serif;">${text}</div>`,iconSize:[null,22],iconAnchor:[0,11]});
   }
-
-  // ========== Helper: add pin with leader line ==========
-  // realLatLng = actual place, labelLatLng = where the tag sits, side = 'left'|'right'
   function addLeaderPin(realLatLng, labelLatLng, id, labelText, color, side) {
-    // 1. Actual location small dot
-    L.marker(realLatLng, {icon: locDot(color), interactive: false, zIndexOffset: 50}).addTo(map);
-
-    // 2. Thin leader line
-    L.polyline([realLatLng, labelLatLng], {
-      color: color, weight: 1.2, opacity: 0.55, interactive: false
-    }).addTo(map);
-
-    // 3. Offset label (clickable)
+    L.marker(realLatLng, {icon:locDot(color), interactive:false, zIndexOffset:50}).addTo(map);
+    L.polyline([realLatLng, labelLatLng], {color:color, weight:1.2, opacity:0.55, interactive:false}).addTo(map);
     const icon = labelIcon(labelText, color);
-    // Adjust anchor depending on side
-    if (side === 'right') {
-      icon.options.iconAnchor = [0, 11];
-    } else {
-      // left side: we want the right edge of the label near the line end
-      // approximate by shifting
-      icon.options.iconAnchor = [70, 11];
-    }
-    const m = L.marker(labelLatLng, {icon: icon, zIndexOffset: 200}).addTo(map);
-
+    icon.options.iconAnchor = side==='right' ? [0,11] : [70,11];
+    const m = L.marker(labelLatLng, {icon:icon, zIndexOffset:200}).addTo(map);
     const info = PIN_INFO[id];
-    if (info) {
-      m.bindPopup(
-        `<b>${info.title}</b><br><span style="color:#5A6A6A;font-size:12px">${info.desc}</span><br>
-         <a class="map-go" onclick="closePopupAndGo('${info.tab}')">看詳細行程 →</a>`,
-        {offset: [0, -8]}
-      );
+    if(info){
+      m.bindPopup(`<b>${info.title}</b><br><span style="color:#5A6A6A;font-size:12px">${info.desc}</span><br><a class="map-go" onclick="closePopupAndGo('${info.tab}')">看詳細行程 →</a>`,{offset:[0,-8]});
     }
     return m;
   }
 
-  // ========== Place the 8 pins + airport with leader lines ==========
-  // Taichung 1 & 2 → pull LEFT
-  addLeaderPin(pts.tc,                    [24.20, 120.35], '1', '1 客運到台中', '#1E6666', 'left');
-  addLeaderPin([24.145, 120.690],          [24.05, 120.35], '2', '2 台中，科博館，審計新村', '#1E6666', 'right');
+  // Taichung area pins
+  addLeaderPin(pts.tc,     [24.20, 120.35], '1', '1 客運到台中',      '#1E6666', 'left');
+  // Sun Moon Lake pin
+  addLeaderPin(pts.sml,    [23.80, 121.20], '2', '2 日月潭', '#1A6878', 'right');
+  // Kaohsiung pins
+  addLeaderPin(pts.kh,     [22.72, 119.05], '3', '3 九族文化村，下高雄',   '#2940A0', 'left');
+  addLeaderPin([22.600, 120.290], [22.55, 120.05], '5', '5 潛水，回高雄，駁二', '#2940A0', 'right');
+  addLeaderPin(pts.fgs,    [22.90, 120.12], '6', '6 佛光山，夢時代，瑞豐', '#2E7D32', 'right');
+  // Liuqiu
+  addLeaderPin(pts.liuqiu, [22.25, 120.10], '4', '4 小琉球，SUP，星空', '#127A7A', 'left');
+  // Taoyuan
+  addLeaderPin(pts.xpark,  [25.05, 121.55], '7', '7 桃園，Xpark',     '#2940A0', 'left');
+  addLeaderPin(pts.airport,[25.22, 121.55], 'airport', '✈ 機場',       '#C94030', 'right');
 
-  // Kaohsiung area 3 / 5 / 6 → pull LEFT
-  addLeaderPin(pts.kh,                    [22.72, 119.05], '3', '3 下高雄，旗津，流行音樂中心', '#2940A0', 'left');
-  addLeaderPin([22.600, 120.290],          [22.55, 120.05], '5', '5 潛水，回高雄，駁二，愛河', '#2940A0', 'right');
-  addLeaderPin(pts.fgs,                   [22.90, 120.12], '6', '6 佛光山，夢時代，瑞豐', '#2E7D32', 'right');
- 
-  // Liuqiu 4 → pull LEFT
-  addLeaderPin(pts.liuqiu,                [22.25, 120.10], '4', '4 小琉球，SUP，星空', '#127A7A', 'left');
-
-  // Taoyuan / Xpark / Airport → pull RIGHT
-  addLeaderPin(pts.xpark,                 [25.05, 121.55], '7', '7 上桃園，Xpark', '#2940A0', 'left');
-  addLeaderPin(pts.airport,               [25.22, 121.55], 'airport', '✈ 機場', '#C94030', 'right');
-
-  // ========== Legend ==========
-  const legend = L.control({position: 'bottomleft'});
-  legend.onAdd = function() {
-    const div = L.DomUtil.create('div');
-    div.style.cssText = 'background:rgba(255,255,255,.93);padding:5px 8px;border-radius:6px;font-size:10px;line-height:1.55;box-shadow:0 1px 4px rgba(0,0,0,.15);color:#333;font-family:Noto Sans TC,sans-serif';
-    div.innerHTML = `
+  const legend = L.control({position:'bottomleft'});
+  legend.onAdd = function(){
+    const div=L.DomUtil.create('div');
+    div.style.cssText='background:rgba(255,255,255,.93);padding:5px 8px;border-radius:6px;font-size:10px;line-height:1.55;box-shadow:0 1px 4px rgba(0,0,0,.15);color:#333;font-family:Noto Sans TC,sans-serif';
+    div.innerHTML=`
       <span style="display:inline-block;width:14px;height:3px;background:#1a4a8a;vertical-align:middle;margin-right:3px"></span>高鐵
       <span style="display:inline-block;width:14px;height:0;border-top:2px dashed #8B5A2B;vertical-align:middle;margin:0 3px 0 7px"></span>客運
-      <span style="display:inline-block;width:14px;height:0;border-top:2px dotted #E67E22;vertical-align:middle;margin:0 3px 0 7px"></span>好行
-      <span style="display:inline-block;width:14px;height:0;border-top:2px dashed #00a8a8;vertical-align:middle;margin:0 3px 0 7px"></span>渡輪
-      <span style="display:inline-block;width:14px;height:0;border-top:2px dashed #9B59B6;vertical-align:middle;margin:0 3px 0 7px"></span>Uber
+      <span style="display:inline-block;width:14px;height:0;border-top:2px dashed #1A6878;vertical-align:middle;margin:0 3px 0 7px"></span>日月潭線
+      <span style="display:inline-block;width:14px;height:0;border-top:2px dotted #E67E22;vertical-align:middle;margin:0 3px 0 7px"></span>好行/渡輪
+      <span style="display:inline-block;width:14px;height:0;border-top:2px dashed #2E7D32;vertical-align:middle;margin:0 3px 0 7px"></span>E02
     `;
     return div;
   };
   legend.addTo(map);
-
   window.tripMap = map;
 }
 
-function closePopupAndGo(tab) {
-  if (window.tripMap) window.tripMap.closePopup();
+function closePopupAndGo(tab){
+  if(window.tripMap) window.tripMap.closePopup();
   go(tab);
 }
 
-// Init
-if (document.readyState === 'loading') {
+if(document.readyState==='loading'){
   document.addEventListener('DOMContentLoaded', initTripMap);
-} else {
-  initTripMap();
-}
+} else { initTripMap(); }
 
-// Re-size when returning to overview
 const origGo = go;
-go = function(id) {
+go = function(id){
   origGo(id);
-  if (id === 'ov' && window.tripMap) {
-    setTimeout(function(){ window.tripMap.invalidateSize(); }, 60);
+  if(id==='ov' && window.tripMap){
+    setTimeout(function(){window.tripMap.invalidateSize();}, 60);
   }
 };
 </script>
